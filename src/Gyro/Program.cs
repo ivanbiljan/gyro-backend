@@ -36,21 +36,22 @@ namespace Gyro
             // }
             //
             // await app.RunAsync();
-            WebHost.CreateDefaultBuilder(args).UseStartup<Startup>().Build().Run();
+
+            using var host = BuildWebHost(args);
+            await host.RunAsync();
         }
 
-        private static void ConfigureLogger(HostBuilderContext context, IServiceProvider provider, LoggerConfiguration configuration)
+        private static IWebHost BuildWebHost(string[] args)
         {
+            return WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseSerilog(ConfigureLogger)
+                .Build();
         }
 
-        private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        private static void ConfigureLogger(WebHostBuilderContext context, LoggerConfiguration configuration)
         {
-            services.AddApplication()
-                .AddInfrastructure(configuration);
-
-            services.AddControllers();
-
-            services.AddLogging(x => x.AddSerilog());
+            configuration.WriteTo.Console();
         }
     }
     
@@ -78,8 +79,12 @@ namespace Gyro
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
-            app.UseSwagger();
-            app.UseSwaggerUI(x => x.DisplayRequestDuration());
+            if (env.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(x => x.DisplayRequestDuration());
+            }
+            
             app.UseCors(opts => opts.AllowAnyOrigin());
         }
     }
