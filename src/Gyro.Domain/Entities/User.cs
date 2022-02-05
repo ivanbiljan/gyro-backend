@@ -11,15 +11,15 @@ namespace Gyro.Domain.Entities
             Email = email ?? throw new ArgumentNullException(nameof(email));
             HashedPassword = hashedPassword ?? throw new ArgumentNullException(nameof(hashedPassword));
         }
-        
-        public string Username { get; set; }
-        
-        public string?  FirstName { get; set; }
-        
-        public string? LastName { get; set; }
-        
+
         public string Email { get; set; }
-        
+
+        public string? FirstName { get; set; }
+
         public string HashedPassword { get; set; }
+
+        public string? LastName { get; set; }
+
+        public string Username { get; set; }
     }
 }

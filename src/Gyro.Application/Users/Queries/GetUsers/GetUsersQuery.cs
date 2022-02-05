@@ -20,7 +20,7 @@ namespace Gyro.Application.Users.Queries.GetUsers
                 _configurationProvider = configurationProvider;
                 _db = db;
             }
-            
+
             public Task<GetUsersResponse> Handle(GetUsersQuery request, CancellationToken cancellationToken)
             {
                 var userDtos = _db.Users.ProjectTo<UserDto>(_configurationProvider);

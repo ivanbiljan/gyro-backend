@@ -1,11 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Gyro.Application.Users.Queries.GetUsers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gyro.Controllers.v1
 {
+    [ApiController]
+    [Route("/api/users")]
     public sealed class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -16,9 +17,6 @@ namespace Gyro.Controllers.v1
         }
 
         [HttpGet]
-        public async Task<GetUsersResponse> Get(GetUsersQuery request)
-        {
-            return await _mediator.Send(request);
-        }
+        public async Task<GetUsersResponse> Get(GetUsersQuery request) => await _mediator.Send(request);
     }
 }
