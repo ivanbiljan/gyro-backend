@@ -7,6 +7,6 @@ namespace Gyro.Domain.Shared
     public abstract class EntityBase
     {
         public DateTime CreatedAt { get; } = DateTime.Now;
-        public int Id { get; private set; }
+        public int Id { get; init; }
     }
 }

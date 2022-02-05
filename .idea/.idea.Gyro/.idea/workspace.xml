@@ -35,9 +35,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c0f94d47da1648fd99813c693026cf6d15868/9/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba7bb99a16774f3397f4699376dfe23c99f880/260/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3db0d6f047ff43bcabd841b54cd7d1971bfb88/11E/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="24ejBMemFA7Ra5be5uVnSg2PS2I" />
   <component name="ProjectViewState">
@@ -200,7 +203,7 @@
       <workItem from="1644011031932" duration="7299000" />
       <workItem from="1644082856789" duration="2346000" />
       <workItem from="1644085241829" duration="429000" />
-      <workItem from="1644085691243" duration="9935000" />
+      <workItem from="1644085691243" duration="15089000" />
     </task>
     <servers />
   </component>
@@ -211,6 +214,25 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs</url>
+          <line>19</line>
+          <properties documentPath="E:\Source\Repos\Gyro\src\Gyro\Controllers\v1\UsersController.cs" initialLine="19" containingFunctionPresentation="method 'Get'">
+            <startOffsets>
+              <option value="526" />
+            </startOffsets>
+            <endOffsets>
+              <option value="555" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

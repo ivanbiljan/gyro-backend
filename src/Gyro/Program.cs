@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using Gyro.Application.Extensions;
 using Gyro.Infrastructure.Extensions;
+using MediatR;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,6 +41,7 @@ namespace Gyro
             // await app.RunAsync();
 
             using var host = BuildWebHost(args);
+            using var scope = host.Services.CreateScope();
             await host.RunAsync();
         }
 
@@ -67,13 +71,14 @@ namespace Gyro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication()
-                .AddInfrastructure(Configuration);
+                .AddInfrastructure(Configuration)
+                .AddMediatR(Assembly.GetExecutingAssembly(), typeof(Application.Shared.IGyroContext).Assembly);
 
             services.AddControllers();
 
             services.AddSwaggerGen();
 
-            services.AddLogging(x => x.AddSerilog());
+            services.AddLogging(builder => builder.AddSerilog());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,8 +89,14 @@ namespace Gyro
                 app.UseSwagger();
                 app.UseSwaggerUI(x => x.DisplayRequestDuration());
             }
-            
+
+            app.UseRouting();
             app.UseCors(opts => opts.AllowAnyOrigin());
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/", context => context.Response.WriteAsync("OK"));
+                endpoints.MapControllers();
+            });
         }
     }
 }

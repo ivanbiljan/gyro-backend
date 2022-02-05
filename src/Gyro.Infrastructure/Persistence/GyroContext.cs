@@ -15,5 +15,12 @@ namespace Gyro.Infrastructure.Persistence
         public DbSet<User> Users => Set<User>();
 
         public Task<int> SaveAsync(CancellationToken cancellationToken) => SaveChangesAsync(cancellationToken);
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            DatabaseInitializer.SeedData(modelBuilder);
+            
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

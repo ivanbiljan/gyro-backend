@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Gyro.Application.Shared.AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,8 +11,7 @@ namespace Gyro.Application.Extensions
         public static IServiceCollection AddApplication(this IServiceCollection serviceCollection)
         {
             return serviceCollection
-                .AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetExecutingAssembly()))
-                .AddMediatR(Assembly.GetExecutingAssembly());
+                .AddAutoMapper(cfg => cfg.AddProfile(new MainProfile()));
         }
     }
 }

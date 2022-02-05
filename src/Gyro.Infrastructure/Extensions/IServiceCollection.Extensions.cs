@@ -1,4 +1,5 @@
-﻿using Gyro.Infrastructure.Persistence;
+﻿using Gyro.Application.Shared;
+using Gyro.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +11,11 @@ namespace Gyro.Infrastructure.Extensions
         public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString(nameof(GyroContext));
-            return serviceCollection.AddDbContext<GyroContext>(opts => opts.UseSqlServer(connectionString));
+            serviceCollection.AddDbContext<GyroContext>(opts => opts.UseInMemoryDatabase("InMemory"));
+
+            serviceCollection.AddScoped<IGyroContext>(provider => provider.GetRequiredService<GyroContext>());
+
+            return serviceCollection;
         }
     }
 }

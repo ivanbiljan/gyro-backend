@@ -9,13 +9,15 @@ namespace Gyro.Application.Shared.AutoMapper
     {
         public MainProfile()
         {
-            var mapMethod = typeof(MappableFrom<>).GetMethod(nameof(MappableFrom<object>.Map))!;
-            var mappableObjects = from type in Assembly.GetExecutingAssembly().GetExportedTypes()
-                where typeof(MappableFrom<>).IsAssignableFrom(type) && !type.IsGenericTypeDefinition
-                select Activator.CreateInstance(typeof(MappableFrom<>).MakeGenericType(type));
-            foreach (var mappableObject in mappableObjects)
+            var mappableTypes = from type in Assembly.GetExecutingAssembly().GetExportedTypes()
+                where type.BaseType is { IsGenericType: true } &&
+                      typeof(MappableFrom<>).IsAssignableFrom(type.BaseType.GetGenericTypeDefinition())
+                select type;
+            foreach (var mappableType in mappableTypes)
             {
-                mapMethod.Invoke(mappableObject, new object?[] { this });
+                var instance = Activator.CreateInstance(mappableType);
+                var mapMethod = mappableType.GetMethod(nameof(MappableFrom<object>.Map))!;
+                mapMethod.Invoke(instance, new object?[] { this });
             }
         }
     }
