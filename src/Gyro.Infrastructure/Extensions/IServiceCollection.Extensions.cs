@@ -13,7 +13,11 @@ namespace Gyro.Infrastructure.Extensions
             var connectionString = configuration.GetConnectionString(nameof(GyroContext));
             serviceCollection.AddDbContext<GyroContext>(opts => opts.UseInMemoryDatabase("InMemory"));
 
-            serviceCollection.AddScoped<IGyroContext>(provider => provider.GetRequiredService<GyroContext>());
+            serviceCollection.AddScoped<IGyroContext>(provider =>
+            {
+                var context = provider.GetRequiredService<GyroContext>();
+                return context;
+            });
 
             return serviceCollection;
         }

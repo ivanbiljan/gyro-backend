@@ -18,9 +18,9 @@ namespace Gyro.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            DatabaseInitializer.SeedData(modelBuilder);
-            
             base.OnModelCreating(modelBuilder);
+            
+            DatabaseInitializer.SeedData(modelBuilder);
         }
     }
 }

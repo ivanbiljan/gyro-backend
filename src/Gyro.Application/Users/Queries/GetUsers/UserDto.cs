@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace Gyro.Application.Users.Queries.GetUsers
 {
     [PublicAPI]
-    public sealed class UserDto : MappableFrom<User>
+    public sealed class UserDto : MapsTo<User>
     {
         public DateTime? ArchiveDate { get; set; }
 
