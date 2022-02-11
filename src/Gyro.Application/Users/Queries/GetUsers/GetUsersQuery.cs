@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Gyro.Application.Shared;
+using JetBrains.Annotations;
 using MediatR;
 
 namespace Gyro.Application.Users.Queries.GetUsers
@@ -12,6 +14,12 @@ namespace Gyro.Application.Users.Queries.GetUsers
     {
     }
     
+    [PublicAPI]
+    public sealed class GetUsersResponse
+    {
+        public IEnumerable<UserDto> Users { get; init; } = new List<UserDto>();
+    }
+
     public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, GetUsersResponse>
     {
         private readonly IConfigurationProvider _configurationProvider;

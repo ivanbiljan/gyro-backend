@@ -13,7 +13,12 @@
     <projectFile profileName="Gyro">src/Gyro/Gyro.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="" />
+    <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUsersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUsersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUsersResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +31,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -35,12 +43,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c0f94d47da1648fd99813c693026cf6d15868/9/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3db0d6f047ff43bcabd841b54cd7d1971bfb88/11E/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba7bb99a16774f3397f4699376dfe23c99f880/260/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3db0d6f047ff43bcabd841b54cd7d1971bfb88/11E/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="24ejBMemFA7Ra5be5uVnSg2PS2I" />
   <component name="ProjectViewState">
@@ -54,6 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="GitIgnore" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSON" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -203,15 +212,30 @@
       <workItem from="1644011031932" duration="7299000" />
       <workItem from="1644082856789" duration="2346000" />
       <workItem from="1644085241829" duration="429000" />
-      <workItem from="1644085691243" duration="19712000" />
+      <workItem from="1644085691243" duration="20003000" />
+      <workItem from="1644612316670" duration="222000" />
+      <workItem from="1644612590763" duration="231000" />
+      <workItem from="1644612841584" duration="2412000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
