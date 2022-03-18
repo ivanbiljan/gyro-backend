@@ -8,7 +8,7 @@ using Gyro.Application.Shared;
 using JetBrains.Annotations;
 using MediatR;
 
-namespace Gyro.Application.Users.Queries.GetUsers
+namespace Gyro.Application.Users.Queries
 {
     public class GetUsersQuery : IRequest<GetUsersResponse>
     {

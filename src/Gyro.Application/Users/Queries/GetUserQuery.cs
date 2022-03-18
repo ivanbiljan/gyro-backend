@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gyro.Application.Users.Queries.GetUsers
+namespace Gyro.Application.Users.Queries
 {
     public sealed class GetUserQuery : IRequest<GetUserResponse>
     {

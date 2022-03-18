@@ -3,7 +3,7 @@ using Gyro.Application.Shared.AutoMapper;
 using Gyro.Domain.Entities;
 using JetBrains.Annotations;
 
-namespace Gyro.Application.Users.Queries.GetUsers
+namespace Gyro.Application.Users.Queries
 {
     [PublicAPI]
     public sealed class UserDto : MapsTo<User>
