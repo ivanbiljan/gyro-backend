@@ -16,11 +16,6 @@ using Serilog;
 
 namespace Gyro
 {
-    internal sealed class Settings
-    {
-        public string[] AllowedOrigins { get; init; } = Array.Empty<string>();
-    }
-
     internal sealed class Program
     {
         public static async Task Main(string[] args)

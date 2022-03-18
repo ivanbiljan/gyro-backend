@@ -15,9 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUsersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUsersQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUsersResponse.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +213,8 @@
       <workItem from="1644085691243" duration="20003000" />
       <workItem from="1644612316670" duration="222000" />
       <workItem from="1644612590763" duration="231000" />
-      <workItem from="1644612841584" duration="2412000" />
+      <workItem from="1644612841584" duration="3420000" />
+      <workItem from="1647624507776" duration="1004000" />
     </task>
     <servers />
   </component>
@@ -235,9 +234,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsers/GetUserQuery.cs</url>
+          <line>31</line>
+          <properties documentPath="E:\Source\Repos\Gyro\src\Gyro.Application\Users\Queries\GetUsers\GetUserQuery.cs" initialLine="31" containingFunctionPresentation="lambda expression inside method 'Handle'">
+            <startOffsets>
+              <option value="920" />
+            </startOffsets>
+            <endOffsets>
+              <option value="938" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
