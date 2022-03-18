@@ -6,7 +6,7 @@ namespace Gyro.Domain.Shared
     [PublicAPI]
     public abstract class EntityBase
     {
-        public EntityBase()
+        protected EntityBase()
         {
             CreatedAt = DateTime.UtcNow;
         }

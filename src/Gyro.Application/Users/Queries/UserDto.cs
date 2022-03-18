@@ -13,6 +13,7 @@ namespace Gyro.Application.Users.Queries
         public DateTime CreatedAt { get; set; }
 
         public string Email { get; set; } = default!;
+        
         public int Id { get; set; }
 
         public string Username { get; set; } = default!;
