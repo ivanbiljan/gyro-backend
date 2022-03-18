@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Gyro.Controllers.v1
 {
     [ApiController]
-    [Route("/api/v1/users")]
-    public sealed class UsersController : ControllerBase
+    [Route("/api/{version:apiVersion}/users")]
+    public sealed partial class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
 
