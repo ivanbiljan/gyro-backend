@@ -1,15 +1,12 @@
-﻿namespace Gyro.Domain.Entities
+﻿using Gyro.Domain.Shared;
+
+namespace Gyro.Domain.Entities
 {
     /// <summary>
     /// Represents a language.
     /// </summary>
-    public sealed class Language
+    public sealed class Language : AuditableEntityBase
     {
-        /// <summary>
-        /// Gets or sets an integer that uniquely identifies the language in the database.
-        /// </summary>
-        public int Id { get; set; }
-        
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
