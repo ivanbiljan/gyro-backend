@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Gyro.Application.Users.Queries;
 using Gyro.Application.Users.Queries.GetUsers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
