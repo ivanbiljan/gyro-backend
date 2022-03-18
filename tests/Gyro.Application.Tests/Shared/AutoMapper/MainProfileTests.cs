@@ -1,7 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using Gyro.Application.Shared.AutoMapper;
-using Gyro.Application.Users.Queries.GetUsers;
+using Gyro.Application.Users.Queries;
 using Gyro.Domain.Entities;
 using Xunit;
 
