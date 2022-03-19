@@ -22,7 +22,6 @@ namespace Gyro.Application.Tests.Shared.AutoMapper
         [InlineData(typeof(User), typeof(UserDto))]
         public void AssertDtoMappingsAreCorrect(Type sourceType, Type destinationType)
         {
-            Assert.False(true);
             _mapper.Map(sourceType, destinationType);
         }
 
