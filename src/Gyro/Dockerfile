@@ -10,8 +10,10 @@ COPY ["src/Gyro/Gyro.csproj", "src/Gyro/"]
 COPY ["src/Gyro.Domain/Gyro.Domain.csproj", "src/Gyro.Domain/"]
 COPY ["src/Gyro.Application/Gyro.Application.csproj", "src/Gyro.Application/"]
 COPY ["src/Gyro.Infrastructure/Gyro.Infrastructure.csproj", "src/Gyro.Infrastructure/"]
+COPY ["tests/Gyro.Application.Tests/Gyro.Application.Tests.csproj", "tests/Gyro.Application.Tests/"]
 RUN dotnet restore "src/Gyro/Gyro.csproj"
 COPY . .
+RUN dotnet test
 WORKDIR "/src/src/Gyro"
 RUN ls
 RUN dotnet build "Gyro.csproj" -c Release -o /app/build
