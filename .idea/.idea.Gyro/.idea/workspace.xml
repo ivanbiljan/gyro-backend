@@ -13,7 +13,17 @@
     <projectFile profileName="Gyro">src/Gyro/Gyro.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="" />
+    <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gyro.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Gyro.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Gyro.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Gyro.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Shared/AuditableEntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Shared/AuditableEntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Shared/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Shared/EntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Shared/IAuditableEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Shared/IAuditableEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,9 +66,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="GitIgnore" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT&#10;GitIgnore" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSON" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Gyro">

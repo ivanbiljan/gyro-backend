@@ -1,9 +1,7 @@
 ﻿using System;
-using JetBrains.Annotations;
 
 namespace Gyro.Domain.Shared
 {
-    [PublicAPI]
     public abstract class EntityBase
     {
         protected EntityBase()
