@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using Gyro.Application.Shared;
 using MediatR;
 
 namespace Gyro.Application.Users.Commands
@@ -24,15 +25,18 @@ namespace Gyro.Application.Users.Commands
         
         public RegisterUserCommandValidator()
         {
-            RuleFor(r => r.Email).Matches(EmailRegex);
-            RuleFor(r => r.FirstName).NotEmpty();
-            RuleFor(r => r.LastName).NotEmpty();
-            RuleFor(r => r.Password).NotEmpty();
+            RuleFor(r => r.Email).Matches(EmailRegex).WithMessage("Invalid email address");
+            RuleFor(r => r.FirstName).NotEmpty().WithMessage("First name is empty");
+            RuleFor(r => r.LastName).NotEmpty().WithMessage("Last name is empty");
+            RuleFor(r => r.Password).NotEmpty().WithMessage("Password is empty").MinimumLength(6)
+                .WithMessage("Password must contain at least 6 characters");
         }
     }
 
     public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, RegisterUserResponse>
     {
+        private readonly IGyroContext _db;
+        
         public Task<RegisterUserResponse> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
         {
             

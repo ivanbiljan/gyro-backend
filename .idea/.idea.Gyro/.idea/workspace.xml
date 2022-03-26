@@ -15,8 +15,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,10 +43,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c0f94d47da1648fd99813c693026cf6d15868/9/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3db0d6f047ff43bcabd841b54cd7d1971bfb88/11E/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/4/DefaultValidatorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba7bb99a16774f3397f4699376dfe23c99f880/260/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/6E/LengthValidator.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="24ejBMemFA7Ra5be5uVnSg2PS2I" />
   <component name="ProjectViewState">
@@ -219,7 +219,7 @@
       <workItem from="1647624507776" duration="1004000" />
       <workItem from="1647714134955" duration="7121000" />
       <workItem from="1647889140171" duration="593000" />
-      <workItem from="1648298619580" duration="4953000" />
+      <workItem from="1648298619580" duration="6251000" />
     </task>
     <servers />
   </component>
