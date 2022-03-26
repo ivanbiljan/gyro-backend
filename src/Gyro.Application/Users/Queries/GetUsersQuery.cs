@@ -34,6 +34,7 @@ namespace Gyro.Application.Users.Queries
         public Task<GetUsersResponse> Handle(GetUsersQuery request, CancellationToken cancellationToken)
         {
             var userDtos = _db.Users.ProjectTo<UserDto>(_configurationProvider);
+            
             return Task.FromResult(new GetUsersResponse
             {
                 Users = userDtos.AsEnumerable()
