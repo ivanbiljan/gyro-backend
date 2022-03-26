@@ -15,7 +15,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +219,7 @@
       <workItem from="1647624507776" duration="1004000" />
       <workItem from="1647714134955" duration="7121000" />
       <workItem from="1647889140171" duration="593000" />
-      <workItem from="1648298619580" duration="1153000" />
+      <workItem from="1648298619580" duration="4953000" />
     </task>
     <servers />
   </component>
