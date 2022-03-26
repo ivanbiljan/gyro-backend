@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -39,7 +40,6 @@ namespace Gyro.Application.Users.Commands
         
         public Task<RegisterUserResponse> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
         {
-            
         }
     }
     
