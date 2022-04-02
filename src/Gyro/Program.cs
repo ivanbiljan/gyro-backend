@@ -9,12 +9,17 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using Serilog;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Gyro
 {
@@ -79,21 +84,40 @@ namespace Gyro
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
                 options.ApiVersionReader =
-                    ApiVersionReader.Combine(new QueryStringApiVersionReader("version", "apiVersion"));
+                    ApiVersionReader.Combine(
+                        new UrlSegmentApiVersionReader()
+                    );
+            });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
             });
 
             services.AddSwaggerGen();
+
+            services.ConfigureOptions<ConfigureSwaggerOptions>();
 
             services.AddLogging(builder => builder.AddSerilog());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env, IApiVersionDescriptionProvider apiVersionDescriptionProvider)
         {
             if (env.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI(x => x.DisplayRequestDuration());
+                app.UseSwaggerUI(options =>
+                {
+                    options.DisplayRequestDuration();
+                    
+                    foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
+                    {
+                        options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant());
+                    }
+                });
             }
 
             app.UseRouting();
@@ -103,6 +127,50 @@ namespace Gyro
                 endpoints.MapGet("/", context => context.Response.WriteAsync("OK"));
                 endpoints.MapControllers();
             });
+        }
+        
+        public class ConfigureSwaggerOptions
+            : IConfigureNamedOptions<SwaggerGenOptions>
+        {
+            private readonly IApiVersionDescriptionProvider _provider;
+
+            public ConfigureSwaggerOptions(
+                IApiVersionDescriptionProvider provider)
+            {
+                _provider = provider;
+            }
+
+            public void Configure(SwaggerGenOptions options)
+            {
+                foreach (var description in _provider.ApiVersionDescriptions)
+                {
+                    options.SwaggerDoc(
+                        description.GroupName, 
+                        CreateVersionInfo(description));
+                }
+            }
+
+            public void Configure(string name, SwaggerGenOptions options)
+            {
+                Configure(options);
+            }
+
+            private static OpenApiInfo CreateVersionInfo(
+                ApiVersionDescription description)
+            {
+                var info = new OpenApiInfo
+                {
+                    Title = "Gyro API",
+                    Version = description.ApiVersion.ToString()
+                };
+
+                if (description.IsDeprecated)
+                {
+                    info.Description += " This API version has been deprecated.";
+                }
+
+                return info;
+            }
         }
     }
 }

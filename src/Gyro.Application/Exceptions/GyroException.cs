@@ -2,7 +2,7 @@
 
 namespace Gyro.Application.Exceptions
 {
-    public sealed class GyroException : Exception
+    public class GyroException : Exception
     {
         public GyroException(string message) : base(message)
         {

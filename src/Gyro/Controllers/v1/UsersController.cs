@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Gyro.Application.Users.Commands;
 using Gyro.Application.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Gyro.Controllers.v1
 {
     [ApiController]
-    [Route("/api/{version:apiVersion}/users")]
+    [ApiVersion("1.0")]
+    [Route("/api/v{version:apiVersion}/users")]
     public sealed partial class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -17,10 +19,14 @@ namespace Gyro.Controllers.v1
         }
 
         [HttpGet]
-        public async Task<GetUsersResponse> Get([FromQuery] GetUsersQuery request) => await _mediator.Send(request);
+        public async Task<GetUsersResponse> GetAllUsers([FromQuery] GetUsersQuery request) => await _mediator.Send(request);
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<GetUserResponse> Get([FromRoute] int id) => await _mediator.Send(new GetUserQuery { Id = id });
+        public async Task<GetUserResponse> GetUserById([FromRoute] int id) => await _mediator.Send(new GetUserQuery { Id = id });
+
+        [HttpPost]
+        public async Task<RegisterUserResponse> Register([FromBody] RegisterUserRequest request) =>
+            await _mediator.Send(request);
     }
 }

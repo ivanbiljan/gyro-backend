@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿using Gyro.Application.Shared;
 using Gyro.Application.Shared.AutoMapper;
 using Gyro.Application.Shared.MediatrPipelineBehaviours;
 using MediatR;
@@ -13,7 +13,8 @@ namespace Gyro.Application.Extensions
         {
             return serviceCollection
                 .AddAutoMapper(cfg => cfg.AddProfile(new MainProfile()))
-                .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>))
+                .AddTransient<IPasswordHasher, PasswordHasher>();
         }
     }
 }

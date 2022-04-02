@@ -10,7 +10,7 @@ namespace Gyro.Domain.Entities
         
         public User Lead { get; set; }
         
-        public List<GyroIssue> Tasks { get; set; }
+        public List<Issue> Tasks { get; set; }
         
         public List<User> Members { get; set; }
     }

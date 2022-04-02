@@ -3,7 +3,7 @@ using Gyro.Domain.Shared;
 
 namespace Gyro.Domain.Entities
 {
-    public sealed class GyroIssue : AuditableEntityBase
+    public sealed class Issue : AuditableEntityBase
     {
         public string Name { get; set; }
         
@@ -11,7 +11,7 @@ namespace Gyro.Domain.Entities
         
         public DateTime DueDate { get; set; }
         
-        public User Asignee { get; set; }
+        public User Assignee { get; set; }
         
         public User Reporter { get; set; }
         

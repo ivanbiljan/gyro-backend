@@ -32,7 +32,7 @@ namespace Gyro.Application.Shared.MediatrPipelineBehaviours
             var errors = validationResults.Where(v => v.Errors.Any()).SelectMany(v => v.Errors);
             if (errors.Any())
             {
-                throw new ValidationException("One or more errors occurred", errors);
+                throw new ValidationException(errors);
             }
 
             return await next();

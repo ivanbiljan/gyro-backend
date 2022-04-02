@@ -3,21 +3,18 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using Gyro.Application.Exceptions;
 using Gyro.Application.Shared;
+using Gyro.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gyro.Application.Users.Commands
 {
-    public sealed class RegisterUserRequest : IRequest<RegisterUserResponse>
-    {
-        public string Email { get; set; }
-        
-        public string FirstName { get; set; }
-        
-        public string LastName { get; set; }
-        
-        public string Password { get; set; }
-    }
+    public record RegisterUserRequest
+        (string Email, string Username, string Password, string? FirstName, string? LastName) : IRequest<RegisterUserResponse>;
+
+    public record RegisterUserResponse; 
 
     public sealed class RegisterUserCommandValidator : AbstractValidator<RegisterUserRequest>
     {
@@ -27,6 +24,7 @@ namespace Gyro.Application.Users.Commands
         public RegisterUserCommandValidator()
         {
             RuleFor(r => r.Email).Matches(EmailRegex).WithMessage("Invalid email address");
+            RuleFor(r => r.Username).NotEmpty().WithMessage("Username is empty");
             RuleFor(r => r.FirstName).NotEmpty().WithMessage("First name is empty");
             RuleFor(r => r.LastName).NotEmpty().WithMessage("Last name is empty");
             RuleFor(r => r.Password).NotEmpty().WithMessage("Password is empty").MinimumLength(6)
@@ -37,14 +35,32 @@ namespace Gyro.Application.Users.Commands
     public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, RegisterUserResponse>
     {
         private readonly IGyroContext _db;
-        
-        public Task<RegisterUserResponse> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
+        private readonly IPasswordHasher _passwordHasher;
+
+        public RegisterUserCommand(IGyroContext db, IPasswordHasher passwordHasher)
         {
+            _db = db;
+            _passwordHasher = passwordHasher;
         }
-    }
-    
-    public sealed class RegisterUserResponse
-    {
-        public string Message { get; init; }
+
+        public async Task<RegisterUserResponse> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
+        {
+            var user = await _db.Users
+                .Where(u => u.Email == request.Email)
+                .SingleOrDefaultAsync(cancellationToken);
+            
+            if (user is not null)
+            {
+                throw new GyroException("User already exists");
+            }
+
+            var hashedPassword = _passwordHasher.Hash(request.Password);
+            var newUser = new User(request.Username, request.Email, hashedPassword);
+            
+            _db.Users.Add(newUser);
+            await _db.SaveAsync(cancellationToken);
+
+            return new RegisterUserResponse();
+        }
     }
 }

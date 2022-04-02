@@ -25,6 +25,8 @@ namespace Gyro.Domain.Entities
         
         public List<Project> Projects { get; set; }
         
-        public List<GyroIssue> AssignedIssues { get; set; }
+        public List<Issue> AssignedIssues { get; set; }
+        
+        public List<Issue> ReportedIssues { get; set; }
     }
 }
