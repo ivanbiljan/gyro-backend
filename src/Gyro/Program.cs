@@ -84,7 +84,7 @@ namespace Gyro
             services.AddMvc()
                 .AddFluentValidation(config =>
                     config.RegisterValidatorsFromAssembly(typeof(ValidationBehaviour<,>).Assembly))
-                .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+                .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);    
 
             services.AddControllers();
 

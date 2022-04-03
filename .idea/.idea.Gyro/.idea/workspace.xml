@@ -14,8 +14,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +230,7 @@
       <workItem from="1648298619580" duration="8012000" />
       <workItem from="1648741687368" duration="1717000" />
       <workItem from="1648914862385" duration="4821000" />
-      <workItem from="1648924963299" duration="16918000" />
+      <workItem from="1648924963299" duration="18405000" />
     </task>
     <servers />
   </component>
