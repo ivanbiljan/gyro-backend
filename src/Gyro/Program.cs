@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Gyro.Application.Extensions;
+using Gyro.Application.Shared.MediatrPipelineBehaviours;
 using Gyro.Infrastructure.Extensions;
+using Gyro.Middlewares;
 using MediatR;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -76,6 +81,11 @@ namespace Gyro
                 .AddInfrastructure(Configuration)
                 .AddMediatR(Assembly.GetExecutingAssembly(), typeof(Application.Shared.IGyroContext).Assembly);
 
+            services.AddMvc()
+                .AddFluentValidation(config =>
+                    config.RegisterValidatorsFromAssembly(typeof(ValidationBehaviour<,>).Assembly))
+                .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+
             services.AddControllers();
 
             services.AddApiVersioning(options =>
@@ -119,6 +129,8 @@ namespace Gyro
                     }
                 });
             }
+            
+            app.UseExceptionMiddleware();
 
             app.UseRouting();
             app.UseCors(opts => opts.AllowAnyOrigin());

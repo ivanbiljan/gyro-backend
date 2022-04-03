@@ -15,22 +15,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Exceptions/GyroException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Exceptions/GyroException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/IGyroContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Shared/IGyroContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/MediatrPipelineBehaviours/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Shared/MediatrPipelineBehaviours/ValidationBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/GyroIssue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Entities/GyroIssue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Entities/Project.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Gyro.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Gyro.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Gyro.Application.Tests/Gyro.Application.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Gyro.Application.Tests/Gyro.Application.Tests.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,14 +44,17 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c0f94d47da1648fd99813c693026cf6d15868/9/WebApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a2486b5e044b68e08e1cf9c5b9aa7af81ef4da37de0a0551f713f5374ace/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19d97a65ee6b1e887259728c47df1ff1c1ce6125d534ea5a2ce3df486b43b53/InternalForeignKeyBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fe625e3d32b53ae26947c7678588936d84dc7e9fcdf3b3cdb6ec4c413d7f80/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/4/DefaultValidatorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba7bb99a16774f3397f4699376dfe23c99f880/260/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/6E/LengthValidator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/121bbda5e37280a494cfa9ef29e9a1815ffb32426a586edc2bf99abd92a890/UseMiddlewareExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6208fe9cf81939bc41eaa5e51ac0d642463d9425904c7afb79ef3b94d2449/HttpProtocol.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3db0d6f047ff43bcabd841b54cd7d1971bfb88/11E/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -243,7 +232,7 @@
       <workItem from="1648298619580" duration="8012000" />
       <workItem from="1648741687368" duration="1717000" />
       <workItem from="1648914862385" duration="4821000" />
-      <workItem from="1648924963299" duration="10251000" />
+      <workItem from="1648924963299" duration="16918000" />
     </task>
     <servers />
   </component>
