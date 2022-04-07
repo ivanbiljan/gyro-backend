@@ -14,7 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +59,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="24ejBMemFA7Ra5be5uVnSg2PS2I" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -231,6 +234,9 @@
       <workItem from="1648741687368" duration="1717000" />
       <workItem from="1648914862385" duration="4821000" />
       <workItem from="1648924963299" duration="18405000" />
+      <workItem from="1648996589359" duration="380000" />
+      <workItem from="1648997477005" duration="1125000" />
+      <workItem from="1649272976693" duration="919000" />
     </task>
     <servers />
   </component>
