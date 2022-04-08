@@ -7,10 +7,9 @@ EXPOSE 5001
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["src/Gyro/Gyro.csproj", "src/Gyro/"]
-COPY ["src/Gyro.Domain/Gyro.Domain.csproj", "src/Gyro.Domain/"]
-COPY ["src/Gyro.Application/Gyro.Application.csproj", "src/Gyro.Application/"]
+COPY ["src/Gyro.Core/Gyro.Core.csproj", "src/Gyro.Core/"]
 COPY ["src/Gyro.Infrastructure/Gyro.Infrastructure.csproj", "src/Gyro.Infrastructure/"]
-COPY ["tests/Gyro.Application.Tests/Gyro.Application.Tests.csproj", "tests/Gyro.Application.Tests/"]
+COPY ["tests/Gyro.Core.Tests/Gyro.Core.Tests.csproj", "tests/Gyro.Core.Tests/"]
 RUN dotnet restore "src/Gyro/Gyro.csproj"
 COPY . .
 RUN dotnet test
