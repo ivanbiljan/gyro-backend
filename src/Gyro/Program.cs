@@ -5,8 +5,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Gyro.Application.Extensions;
-using Gyro.Application.Shared.MediatrPipelineBehaviours;
+using Gyro.Core.Extensions;
+using Gyro.Core.Shared.MediatrPipelineBehaviours;
 using Gyro.Infrastructure.Extensions;
 using Gyro.Middlewares;
 using MediatR;
@@ -79,7 +79,7 @@ namespace Gyro
         {
             services.AddApplication()
                 .AddInfrastructure(Configuration)
-                .AddMediatR(Assembly.GetExecutingAssembly(), typeof(Application.Shared.IGyroContext).Assembly);
+                .AddMediatR(Assembly.GetExecutingAssembly(), typeof(Core.Shared.IGyroContext).Assembly);
 
             services.AddMvc()
                 .AddFluentValidation(config =>

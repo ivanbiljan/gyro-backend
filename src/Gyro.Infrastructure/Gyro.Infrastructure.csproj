@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Gyro.Application\Gyro.Application.csproj" />
+        <ProjectReference Include="..\Gyro.Core\Gyro.Core.csproj" />
         <ProjectReference Include="..\Gyro.Domain\Gyro.Domain.csproj" />
     </ItemGroup>
 

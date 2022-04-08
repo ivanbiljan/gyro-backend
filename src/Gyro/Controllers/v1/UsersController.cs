@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Gyro.Application.Users.Commands;
-using Gyro.Application.Users.Queries;
+using Gyro.Core.Users.Commands;
+using Gyro.Core.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

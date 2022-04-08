@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Gyro.Application.Shared;
-using Gyro.Domain.Entities;
+using Gyro.Core.Entities;
+using Gyro.Core.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gyro.Infrastructure.Persistence

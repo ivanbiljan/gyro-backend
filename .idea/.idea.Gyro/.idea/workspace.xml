@@ -15,6 +15,45 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gyro.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Gyro.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Exceptions/GyroException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Exceptions/GyroException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Gyro.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Gyro.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/AutoMapper/MainProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/AutoMapper/MainProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/AutoMapper/MapsTo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/AutoMapper/MapsTo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/IGyroContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IGyroContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/IPasswordHasher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IPasswordHasher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/MediatrPipelineBehaviours/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/MediatrPipelineBehaviours/ValidationBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Shared/PasswordHasher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/PasswordHasher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/LoginCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/LoginCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Commands/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/RegisterUserCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUserQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Queries/GetUserQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/GetUsersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Queries/GetUsersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Application/Users/Queries/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Queries/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/GyroIssue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/GyroIssue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/Permission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Permission.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/Priority.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Priority.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Project.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Role.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Gyro.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Domain/Gyro.Domain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Shared/AuditableEntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/AuditableEntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Shared/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/EntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Domain/Shared/IAuditableEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IAuditableEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/Configurations/IssueConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/Configurations/IssueConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/Configurations/ProjectConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/Configurations/ProjectConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/DatabaseInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/DatabaseInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Controllers/v1/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Gyro.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Middlewares/ExceptionMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Middlewares/ExceptionMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Gyro.Application.Tests/Gyro.Application.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Gyro.Core.Tests/Gyro.Core.Tests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Gyro.Application.Tests/Shared/AutoMapper/MainProfileTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Gyro.Core.Tests/Shared/AutoMapper/MainProfileTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Gyro.Application.Tests/Users/Commands/RegisterUserCommandTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Gyro.Core.Tests/Users/Commands/RegisterUserCommandTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +87,18 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/4/DefaultValidatorExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba7bb99a16774f3397f4699376dfe23c99f880/260/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/6E/LengthValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/Permission.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/Priority.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Shared/AuditableEntityBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Shared/EntityBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Shared/IAuditableEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/121bbda5e37280a494cfa9ef29e9a1815ffb32426a586edc2bf99abd92a890/UseMiddlewareExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/Role.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/Project.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/GyroIssue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6208fe9cf81939bc41eaa5e51ac0d642463d9425904c7afb79ef3b94d2449/HttpProtocol.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b8ef69d3a48143fe8568e981a8ffa98b8f5390/233/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3db0d6f047ff43bcabd841b54cd7d1971bfb88/11E/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
@@ -125,7 +173,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/tests/Gyro.Application.Tests/Gyro.Application.Tests.csproj" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/tests/Gyro.Core.Tests/Gyro.Core.Tests.csproj" />
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
@@ -237,6 +285,8 @@
       <workItem from="1648996589359" duration="380000" />
       <workItem from="1648997477005" duration="1125000" />
       <workItem from="1649272976693" duration="919000" />
+      <workItem from="1649366526765" duration="1409000" />
+      <workItem from="1649441327074" duration="1575000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-﻿using Gyro.Domain.Entities;
+﻿using Gyro.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
