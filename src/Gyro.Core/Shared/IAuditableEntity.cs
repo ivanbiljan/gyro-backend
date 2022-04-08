@@ -8,6 +8,7 @@ namespace Gyro.Domain.Shared
     public interface IAuditableEntity
     {
         DateTime? ArchiveDate { get; set; }
+        
         DateTime? LastModifiedDate { get; set; }
     }
 }
