@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Gyro.Core.Projects.Commands;
 using Gyro.Core.Projects.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -19,6 +20,10 @@ namespace Gyro.Controllers.v1
         }
 
         [HttpGet]
-        public async Task<GetProjectsResponse> Get(GetProjectsRequest request) => await _mediator.Send(request);
+        public async Task<GetProjectsResponse> GetAll(GetProjectsRequest request) => await _mediator.Send(request);
+
+        [HttpPost]
+        public async Task<CreateProjectResponse> CreateProject(CreateProjectRequest request) =>
+            await _mediator.Send(request);
     }
 }
