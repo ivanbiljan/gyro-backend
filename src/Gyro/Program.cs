@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Gyro.Configuration;
 using Gyro.Core.Extensions;
 using Gyro.Core.Shared.MediatrPipelineBehaviours;
+using Gyro.Core.Users;
 using Gyro.Infrastructure.Extensions;
 using Gyro.Middlewares;
+using Gyro.Services;
 using MediatR;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +27,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -78,9 +83,12 @@ namespace Gyro
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
+            
             services.AddApplication()
                 .AddInfrastructure(Configuration)
-                .AddMediatR(Assembly.GetExecutingAssembly(), typeof(Core.Shared.IGyroContext).Assembly);
+                .AddMediatR(Assembly.GetExecutingAssembly(), typeof(Core.Shared.IGyroContext).Assembly)
+                .AddTransient<ICurrentUserService, CurrentUserService>();
 
             services.AddMvc()
                 .AddFluentValidation(config =>
@@ -109,6 +117,20 @@ namespace Gyro
             services.AddSwaggerGen();
 
             services.ConfigureOptions<ConfigureSwaggerOptions>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))   
+                };
+            });
 
             services.AddLogging(builder => builder.AddSerilog());
         }

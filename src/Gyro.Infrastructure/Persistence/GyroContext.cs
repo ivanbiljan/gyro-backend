@@ -24,6 +24,8 @@ namespace Gyro.Infrastructure.Persistence
         
         public DbSet<User> Users => Set<User>();
 
+        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+
         public Task<int> SaveAsync(CancellationToken cancellationToken) => SaveChangesAsync(cancellationToken);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

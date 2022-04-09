@@ -9,6 +9,8 @@ namespace Gyro.Core.Entities
         
         public User Lead { get; set; }
         
+        public string Description { get; set; }
+        
         public List<Issue> Tasks { get; set; }
         
         public List<User> Members { get; set; }

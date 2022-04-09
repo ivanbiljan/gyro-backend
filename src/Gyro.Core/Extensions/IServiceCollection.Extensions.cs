@@ -1,4 +1,5 @@
-﻿using Gyro.Core.Shared;
+﻿using Gyro.Core.Authorization;
+using Gyro.Core.Shared;
 using Gyro.Core.Shared.AutoMapper;
 using Gyro.Core.Shared.MediatrPipelineBehaviours;
 using MediatR;
@@ -14,7 +15,8 @@ namespace Gyro.Core.Extensions
             return serviceCollection
                 .AddAutoMapper(cfg => cfg.AddProfile(new MainProfile()))
                 .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>))
-                .AddTransient<IPasswordHasher, PasswordHasher>();
+                .AddTransient<IPasswordHasher, PasswordHasher>()
+                .AddTransient<IJwtService, JwtService>();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using Gyro.Core.Authorization;
 using Gyro.Core.Exceptions;
 using Gyro.Core.Shared;
 using MediatR;
@@ -11,7 +12,7 @@ namespace Gyro.Core.Users.Commands
 {
     public record LoginUserRequest(string Username, string Password) : IRequest<LoginUserResponse>;
 
-    public record LoginUserResponse;
+    public record LoginUserResponse(string AccessToken, string RefreshToken);
 
     public sealed class LoginCommandValidator : AbstractValidator<LoginUserRequest>
     {
@@ -25,12 +26,14 @@ namespace Gyro.Core.Users.Commands
     public sealed class LoginCommand : IRequestHandler<LoginUserRequest, LoginUserResponse>
     {
         private readonly IGyroContext _db;
+        private readonly IJwtService _jwtService;
         private readonly IPasswordHasher _passwordHasher;
 
-        public LoginCommand(IGyroContext db, IPasswordHasher passwordHasher)
+        public LoginCommand(IGyroContext db, IPasswordHasher passwordHasher, IJwtService jwtService)
         {
             _db = db;
             _passwordHasher = passwordHasher;
+            _jwtService = jwtService;
         }
 
         public async Task<LoginUserResponse> Handle(LoginUserRequest request, CancellationToken cancellationToken)
@@ -49,7 +52,9 @@ namespace Gyro.Core.Users.Commands
                 throw new GyroException("Invalid password");
             }
 
-            return new LoginUserResponse();
+            var (accessToken, refreshToken) = await _jwtService.CreateTokenAsync(user.Id);
+
+            return new LoginUserResponse(accessToken, refreshToken);
         }
     }
 }

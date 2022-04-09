@@ -35,7 +35,7 @@ namespace Gyro.Middlewares
             }
             catch (Exception ex)
             {
-                await WriteResponseAsync(HttpStatusCode.InternalServerError, ex);
+                await WriteResponseAsync(HttpStatusCode.InternalServerError, ex.Message);
             }
 
             async Task WriteResponseAsync(HttpStatusCode statusCode, object value)

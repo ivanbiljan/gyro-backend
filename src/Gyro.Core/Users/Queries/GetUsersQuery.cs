@@ -10,12 +10,10 @@ using MediatR;
 
 namespace Gyro.Core.Users.Queries
 {
-    public class GetUsersQuery : IRequest<GetUsersResponse>
-    {
-    }
-    
+    public record GetUsersQuery : IRequest<GetUsersResponse>;
+
     [PublicAPI]
-    public sealed class GetUsersResponse
+    public sealed record GetUsersResponse
     {
         public IEnumerable<UserDto> Users { get; init; } = new List<UserDto>();
     }
