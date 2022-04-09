@@ -29,12 +29,12 @@ namespace Gyro.Controllers.v1
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<RegisterUserResponse> Register([FromBody] RegisterUserRequest request) =>
+        public async Task<RegisterUserResponse> Register([FromForm] RegisterUserRequest request) =>
             await _mediator.Send(request);
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<LoginUserResponse> Login([FromBody] LoginUserRequest request) =>
+        public async Task<LoginUserResponse> Login([FromForm] LoginUserRequest request) =>
             await _mediator.Send(request);
     }
 }

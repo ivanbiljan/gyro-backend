@@ -20,10 +20,14 @@ namespace Gyro.Controllers.v1
         }
 
         [HttpGet]
-        public async Task<GetProjectsResponse> GetAll(GetProjectsRequest request) => await _mediator.Send(request);
+        public async Task<GetProjectsResponse> GetAllProjects(GetProjectsRequest request) => await _mediator.Send(request);
+
+        [HttpGet("{id}")]
+        public async Task<GetProjectResponse> GetProjectById([FromRoute] int id) =>
+            await _mediator.Send(new GetProjectRequest(id)); 
 
         [HttpPost]
-        public async Task<CreateProjectResponse> CreateProject(CreateProjectRequest request) =>
+        public async Task<CreateProjectResponse> CreateProject([FromBody] CreateProjectRequest request) =>
             await _mediator.Send(request);
     }
 }
