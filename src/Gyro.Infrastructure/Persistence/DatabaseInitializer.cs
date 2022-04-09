@@ -1,4 +1,4 @@
-﻿using Gyro.Domain.Entities;
+﻿using Gyro.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gyro.Infrastructure.Persistence

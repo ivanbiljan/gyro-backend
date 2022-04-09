@@ -1,4 +1,4 @@
-﻿using Gyro.Application.Shared;
+﻿using Gyro.Core.Shared;
 using Gyro.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

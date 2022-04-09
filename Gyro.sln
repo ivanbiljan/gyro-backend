@@ -2,13 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro", "src\Gyro\Gyro.csproj", "{A51A3E81-78BC-4260-89C4-DE7102EE8258}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Domain", "src\Gyro.Domain\Gyro.Domain.csproj", "{3CA42FD1-5175-49B6-81E9-4D1B273CFFEA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Application", "src\Gyro.Application\Gyro.Application.csproj", "{3A37B5A0-AA19-49AB-85EF-85F773DA3625}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Core", "src\Gyro.Core\Gyro.Core.csproj", "{3A37B5A0-AA19-49AB-85EF-85F773DA3625}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Infrastructure", "src\Gyro.Infrastructure\Gyro.Infrastructure.csproj", "{7FA458E7-1C42-4149-936D-C75BB83E2E60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Application.Tests", "tests\Gyro.Application.Tests\Gyro.Application.Tests.csproj", "{99D6EBC5-613C-452A-9F20-A7FB3E485DDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Core.Tests", "tests\Gyro.Core.Tests\Gyro.Core.Tests.csproj", "{99D6EBC5-613C-452A-9F20-A7FB3E485DDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SoultionItems", "SoultionItems", "{1D4B607E-B453-4A05-8E0C-08E1B7E65CA6}"
 EndProject
@@ -23,10 +21,6 @@ Global
 		{A51A3E81-78BC-4260-89C4-DE7102EE8258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A51A3E81-78BC-4260-89C4-DE7102EE8258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A51A3E81-78BC-4260-89C4-DE7102EE8258}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CA42FD1-5175-49B6-81E9-4D1B273CFFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CA42FD1-5175-49B6-81E9-4D1B273CFFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CA42FD1-5175-49B6-81E9-4D1B273CFFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CA42FD1-5175-49B6-81E9-4D1B273CFFEA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A37B5A0-AA19-49AB-85EF-85F773DA3625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A37B5A0-AA19-49AB-85EF-85F773DA3625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A37B5A0-AA19-49AB-85EF-85F773DA3625}.Release|Any CPU.ActiveCfg = Release|Any CPU

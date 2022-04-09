@@ -1,17 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="10.4.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
         <PackageReference Include="MediatR" Version="10.0.1" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.15" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Metadata" Version="5.0.15" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
@@ -22,13 +29,13 @@
         <PackageReference Include="Serilog.Extensions.Hosting" Version="4.2.0" />
         <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
         <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
-        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Gyro.Application\Gyro.Application.csproj" />
+        <ProjectReference Include="..\Gyro.Core\Gyro.Core.csproj" />
         <ProjectReference Include="..\Gyro.Domain\Gyro.Domain.csproj" />
         <ProjectReference Include="..\Gyro.Infrastructure\Gyro.Infrastructure.csproj" />
     </ItemGroup>
