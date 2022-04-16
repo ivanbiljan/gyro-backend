@@ -1,4 +1,6 @@
-﻿using Gyro.Core.Shared;
+﻿using Gyro.Core.Authorization;
+using Gyro.Core.Shared;
+using Gyro.Infrastructure.Authorization;
 using Gyro.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +26,8 @@ namespace Gyro.Infrastructure.Extensions
             {
                 options.ApiKey = configuration.GetSection("SendGrid")["ApiKey"];
             });
+
+            serviceCollection.AddTransient<IJwtService, JwtService>();
 
             return serviceCollection;
         }
