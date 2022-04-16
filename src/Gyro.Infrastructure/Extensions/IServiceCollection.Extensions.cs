@@ -3,6 +3,7 @@ using Gyro.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SendGrid.Extensions.DependencyInjection;
 
 namespace Gyro.Infrastructure.Extensions
 {
@@ -17,6 +18,11 @@ namespace Gyro.Infrastructure.Extensions
             {
                 var context = provider.GetRequiredService<GyroContext>();
                 return context;
+            });
+            
+            serviceCollection.AddSendGrid(options =>
+            {
+                options.ApiKey = configuration.GetSection("SendGrid")["ApiKey"];
             });
 
             return serviceCollection;
