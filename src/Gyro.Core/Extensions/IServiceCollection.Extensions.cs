@@ -15,8 +15,7 @@ namespace Gyro.Core.Extensions
             return serviceCollection
                 .AddAutoMapper(cfg => cfg.AddProfile(new MainProfile()))
                 .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>))
-                .AddTransient<IPasswordHasher, PasswordHasher>()
-                .AddTransient<IJwtService, JwtService>();
+                .AddTransient<IPasswordHasher, PasswordHasher>();
         }
     }
 }

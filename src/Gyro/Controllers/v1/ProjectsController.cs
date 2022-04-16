@@ -10,7 +10,7 @@ namespace Gyro.Controllers.v1
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public sealed class ProjectsController : ControllerBase
+    public sealed partial class ProjectsController : ControllerBase
     {
         private readonly IMediator _mediator;
 

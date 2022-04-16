@@ -1,18 +1,4 @@
-﻿using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Gyro.Configuration;
-using Gyro.Core.Entities;
-using Gyro.Core.Exceptions;
-using Gyro.Core.Shared;
-using Gyro.Core.Users;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+﻿using System.Threading.Tasks;
 
 namespace Gyro.Core.Authorization
 {

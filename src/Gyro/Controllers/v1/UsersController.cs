@@ -26,15 +26,5 @@ namespace Gyro.Controllers.v1
         [HttpGet]
         [Route("{id}")]
         public async Task<GetUserResponse> GetUserById([FromRoute] int id) => await _mediator.Send(new GetUserQuery { Id = id });
-
-        [AllowAnonymous]
-        [HttpPost("register")]
-        public async Task<RegisterUserResponse> Register([FromForm] RegisterUserRequest request) =>
-            await _mediator.Send(request);
-
-        [AllowAnonymous]
-        [HttpPost("login")]
-        public async Task<LoginUserResponse> Login([FromForm] LoginUserRequest request) =>
-            await _mediator.Send(request);
     }
 }
