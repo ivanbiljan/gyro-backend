@@ -20,6 +20,8 @@ namespace Gyro.Core.Shared
         DbSet<User> Users { get; }
         
         DbSet<RefreshToken> RefreshTokens { get; }
+        
+        DbSet<VerificationRequest> VerificationRequests { get; }
 
         Task<int> SaveAsync(CancellationToken cancellationToken);
     }
