@@ -48,7 +48,7 @@ namespace Gyro.Middlewares
 
     internal static class ExceptionMiddlewareExtensions
     {
-        public static void UseExceptionMiddleware(this IApplicationBuilder applicationBuilder)
+        public static void UseExceptionWrapper(this IApplicationBuilder applicationBuilder)
         {
             applicationBuilder.UseMiddleware<ExceptionMiddleware>();
         }

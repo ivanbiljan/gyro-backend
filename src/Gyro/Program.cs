@@ -153,7 +153,7 @@ namespace Gyro
                 });
             }
             
-            app.UseExceptionMiddleware();
+            app.UseExceptionWrapper();
 
             app.UseRouting();
             app.UseCors(opts => opts.AllowAnyOrigin());
