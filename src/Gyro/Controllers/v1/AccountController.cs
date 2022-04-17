@@ -28,5 +28,9 @@ namespace Gyro.Controllers.v1
         [HttpPost("login")]
         public async Task<LoginUserResponse> Login([FromForm] LoginUserRequest request) =>
             await _mediator.Send(request);
+
+        [HttpGet("confirm/{token}")]
+        public async Task<ConfirmRegistrationResponse> ConfirmRegistration(
+            [FromRoute] string token) => await _mediator.Send(new ConfirmRegistrationRequest(token));
     }
 }

@@ -15,15 +15,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Emails/SendGridSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Emails/SendGridSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/VerificationRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/VerificationRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/LoginCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/LoginCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/ConfirmRegistrationCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/ConfirmRegistrationCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/RegisterUserCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Emails/SendGridEmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Emails/MailjetEmailService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Controllers/v1/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Controllers/v1/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +259,7 @@
       <workItem from="1649451249902" duration="2531000" />
       <workItem from="1649500396374" duration="18423000" />
       <workItem from="1650108172554" duration="16294000" />
-      <workItem from="1650145952842" duration="8300000" />
+      <workItem from="1650145952842" duration="10116000" />
     </task>
     <servers />
   </component>

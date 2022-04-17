@@ -36,6 +36,8 @@ namespace Gyro.Core.Users.Commands
 
     public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, RegisterUserResponse>
     {
+        private const int AccountConfirmationExpirationMinutes = 15;
+        
         private readonly IGyroContext _db;
         private readonly IEmailService _emailService;
         private readonly IPasswordHasher _passwordHasher;
@@ -64,7 +66,11 @@ namespace Gyro.Core.Users.Commands
             _db.Users.Add(newUser);
 
             var token = Guid.NewGuid();
-            var verificationRequest = new VerificationRequest(newUser.Id, VerificationType.Registration, token);
+            var verificationRequest = new VerificationRequest(newUser.Id, VerificationType.Registration, token)
+            {
+                ExpirationTime = DateTime.UtcNow.AddMinutes(AccountConfirmationExpirationMinutes)
+            };
+            
             _db.VerificationRequests.Add(verificationRequest);
 
             var verificationLink = VerificationLink.For(VerificationType.Registration, token.ToString());

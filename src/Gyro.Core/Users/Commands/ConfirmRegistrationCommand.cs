@@ -34,13 +34,19 @@ namespace Gyro.Core.Users.Commands
                 throw new GyroException("Invalid request");
             }
 
+            var user = await _db.Users
+                .Where(u => u.Id == verificationRequest.UserId)
+                .SingleOrDefaultAsync(cancellationToken);
+
             if (verificationRequest.ActivationTime != null || verificationRequest.User.ActivationTime != null)
             {
                 throw new GyroException("The account had already been activated");
             }
 
             verificationRequest.ActivationTime = DateTime.UtcNow;
-            verificationRequest.User.ActivationTime = DateTime.UtcNow;
+            user.ActivationTime = DateTime.UtcNow;
+
+            await _db.SaveAsync(cancellationToken);
 
             return new ConfirmRegistrationResponse();
         }
