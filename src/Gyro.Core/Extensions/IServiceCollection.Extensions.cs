@@ -1,5 +1,4 @@
-﻿using Gyro.Core.Authorization;
-using Gyro.Core.Shared;
+﻿using Gyro.Core.Shared;
 using Gyro.Core.Shared.AutoMapper;
 using Gyro.Core.Shared.MediatrPipelineBehaviours;
 using MediatR;

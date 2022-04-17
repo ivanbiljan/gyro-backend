@@ -1,4 +1,4 @@
-﻿namespace Gyro.Core.Emails
+﻿namespace Gyro.Core.Shared.Emails
 {
     public sealed class MailjetSettings
     {

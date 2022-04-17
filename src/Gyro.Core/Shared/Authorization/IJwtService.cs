@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Gyro.Core.Authorization
+namespace Gyro.Core.Shared.Authorization
 {
     public interface IJwtService
     {

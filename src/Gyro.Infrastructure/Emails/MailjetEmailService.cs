@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gyro.Core.Emails;
+using Gyro.Core.Shared.Emails;
 using Mailjet.Client;
 using Mailjet.Client.TransactionalEmails;
 using Microsoft.Extensions.Options;

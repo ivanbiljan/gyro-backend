@@ -4,10 +4,10 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
-using Gyro.Core.Emails;
 using Gyro.Core.Entities;
 using Gyro.Core.Exceptions;
 using Gyro.Core.Shared;
+using Gyro.Core.Shared.Emails;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

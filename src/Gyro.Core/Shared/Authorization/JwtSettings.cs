@@ -1,4 +1,4 @@
-﻿namespace Gyro.Configuration
+﻿namespace Gyro.Core.Shared.Authorization
 {
     public sealed class JwtSettings
     {

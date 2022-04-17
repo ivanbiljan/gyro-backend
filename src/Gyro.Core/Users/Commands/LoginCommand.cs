@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
-using Gyro.Core.Authorization;
 using Gyro.Core.Exceptions;
 using Gyro.Core.Shared;
+using Gyro.Core.Shared.Authorization;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,6 +1,6 @@
-﻿using Gyro.Core.Authorization;
-using Gyro.Core.Emails;
-using Gyro.Core.Shared;
+﻿using Gyro.Core.Shared;
+using Gyro.Core.Shared.Authorization;
+using Gyro.Core.Shared.Emails;
 using Gyro.Infrastructure.Authorization;
 using Gyro.Infrastructure.Emails;
 using Gyro.Infrastructure.Persistence;
