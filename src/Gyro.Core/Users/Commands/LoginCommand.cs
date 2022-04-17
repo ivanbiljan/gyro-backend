@@ -46,6 +46,11 @@ namespace Gyro.Core.Users.Commands
             {
                 throw new GyroException("User does not exist");
             }
+
+            if (user.ActivationTime is null)
+            {
+                throw new GyroException("The account has not been activated");
+            }
             
             if (!_passwordHasher.VerifyPassword(request.Password, user.HashedPassword))
             {

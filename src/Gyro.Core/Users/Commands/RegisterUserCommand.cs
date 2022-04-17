@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
+using Gyro.Core.Emails;
 using Gyro.Core.Entities;
 using Gyro.Core.Exceptions;
 using Gyro.Core.Shared;
@@ -35,12 +37,14 @@ namespace Gyro.Core.Users.Commands
     public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, RegisterUserResponse>
     {
         private readonly IGyroContext _db;
+        private readonly IEmailService _emailService;
         private readonly IPasswordHasher _passwordHasher;
 
-        public RegisterUserCommand(IGyroContext db, IPasswordHasher passwordHasher)
+        public RegisterUserCommand(IGyroContext db, IPasswordHasher passwordHasher, IEmailService emailService)
         {
             _db = db;
             _passwordHasher = passwordHasher;
+            _emailService = emailService;
         }
 
         public async Task<RegisterUserResponse> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
@@ -58,6 +62,15 @@ namespace Gyro.Core.Users.Commands
             var newUser = new User(request.Username, request.Email, hashedPassword);
             
             _db.Users.Add(newUser);
+
+            var token = Guid.NewGuid();
+            var verificationRequest = new VerificationRequest(newUser.Id, VerificationType.Registration, token);
+            _db.VerificationRequests.Add(verificationRequest);
+
+            var verificationLink = VerificationLink.For(VerificationType.Registration, token.ToString());
+            await _emailService.SendEmailAsync(request.Email, "Confirm account",
+                $"Confirm your account: {verificationLink}");
+                
             await _db.SaveAsync(cancellationToken);
 
             return new RegisterUserResponse();

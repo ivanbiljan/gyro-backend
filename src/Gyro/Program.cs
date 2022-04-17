@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Gyro.Configuration;
+using Gyro.Core.Emails;
 using Gyro.Core.Extensions;
 using Gyro.Core.Shared.MediatrPipelineBehaviours;
 using Gyro.Core.Users;
@@ -117,6 +118,8 @@ namespace Gyro
             services.AddSwaggerGen();
 
             services.ConfigureOptions<ConfigureSwaggerOptions>();
+
+            services.Configure<MailjetSettings>(Configuration.GetSection("Mailjet"));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {

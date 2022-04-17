@@ -23,10 +23,12 @@ namespace Gyro.Core.Entities
 
         public string Username { get; set; }
         
-        public List<Project> Projects { get; set; } = null!;
+        public DateTime? ActivationTime { get; set; }
+        
+        public List<Project> Projects { get; init; } = null!;
 
-        public List<Issue> AssignedIssues { get; set; } = null!;
+        public List<Issue> AssignedIssues { get; init; } = null!;
 
-        public List<Issue> ReportedIssues { get; set; } = null!;
+        public List<Issue> ReportedIssues { get; init; } = null!;
     }
 }

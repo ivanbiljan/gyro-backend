@@ -1,6 +1,6 @@
 ﻿namespace Gyro.Core.Emails
 {
-    public sealed class SendGridSettings
+    public sealed class MailjetSettings
     {
         public string ApiKey { get; set; }
         

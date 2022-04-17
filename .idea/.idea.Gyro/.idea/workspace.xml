@@ -15,6 +15,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Emails/SendGridSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Emails/SendGridSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/VerificationRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/VerificationRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/LoginCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/LoginCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Users/Commands/RegisterUserCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Emails/SendGridEmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Emails/MailjetEmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Extensions/IServiceCollection.Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Extensions/IServiceCollection.Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Gyro.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +69,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba7bb99a16774f3397f4699376dfe23c99f880/260/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8455a2476fcd4c4fa4d044c691d2f6426be00/6E/LengthValidator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/940362e05fbf4b2ba1808039aea2726559068/18/HostingLoggerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/586fe020a7ca429c82f461e6749e7f4813600/4a/51a0e2c1/TransactionalEmailBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/121bbda5e37280a494cfa9ef29e9a1815ffb32426a586edc2bf99abd92a890/UseMiddlewareExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6208fe9cf81939bc41eaa5e51ac0d642463d9425904c7afb79ef3b94d2449/HttpProtocol.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26259b0a3c4b474b9f081864810b4654ba00/db/ea56f37a/ISender.cs" root0="SKIP_HIGHLIGHTING" />
@@ -253,7 +264,8 @@
       <workItem from="1649441327074" duration="5293000" />
       <workItem from="1649451249902" duration="2531000" />
       <workItem from="1649500396374" duration="18423000" />
-      <workItem from="1650108172554" duration="11501000" />
+      <workItem from="1650108172554" duration="16294000" />
+      <workItem from="1650145952842" duration="8300000" />
     </task>
     <servers />
   </component>

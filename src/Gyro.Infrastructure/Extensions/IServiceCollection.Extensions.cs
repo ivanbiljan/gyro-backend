@@ -1,11 +1,13 @@
 ﻿using Gyro.Core.Authorization;
+using Gyro.Core.Emails;
 using Gyro.Core.Shared;
 using Gyro.Infrastructure.Authorization;
+using Gyro.Infrastructure.Emails;
 using Gyro.Infrastructure.Persistence;
+using Mailjet.Client;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SendGrid.Extensions.DependencyInjection;
 
 namespace Gyro.Infrastructure.Extensions
 {
@@ -22,12 +24,17 @@ namespace Gyro.Infrastructure.Extensions
                 return context;
             });
             
-            serviceCollection.AddSendGrid(options =>
+            serviceCollection.AddHttpClient<IMailjetClient, MailjetClient>(client =>
             {
-                options.ApiKey = configuration.GetSection("SendGrid")["ApiKey"];
+                client.SetDefaultSettings();
+
+                var mailjetSection = configuration.GetSection("Mailjet");
+                client.UseBasicAuthentication(mailjetSection["ApiKey"], mailjetSection["ApiSecret"]);
             });
 
             serviceCollection.AddTransient<IJwtService, JwtService>();
+
+            serviceCollection.AddTransient<IEmailService, MailjetEmailService>();
 
             return serviceCollection;
         }
