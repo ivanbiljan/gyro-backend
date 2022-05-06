@@ -36,7 +36,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Gyro.Core\Gyro.Core.csproj" />
-        <ProjectReference Include="..\Gyro.Domain\Gyro.Domain.csproj" />
         <ProjectReference Include="..\Gyro.Infrastructure\Gyro.Infrastructure.csproj" />
     </ItemGroup>
 

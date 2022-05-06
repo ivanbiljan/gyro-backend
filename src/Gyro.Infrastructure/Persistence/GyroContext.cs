@@ -1,7 +1,10 @@
-﻿using System.Threading;
+﻿using System;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Gyro.Core.Entities;
 using Gyro.Core.Shared;
+using Gyro.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gyro.Infrastructure.Persistence
@@ -37,6 +40,40 @@ namespace Gyro.Infrastructure.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GyroContext).Assembly);
             
             DatabaseInitializer.SeedData(modelBuilder);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var modifiedEntities = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified);
+            foreach (var entity in modifiedEntities)
+            {
+                if (entity is not IAuditableEntity auditableEntity)
+                {
+                    continue;
+                }
+                
+                auditableEntity.LastModifiedDate = DateTime.UtcNow;
+            }
+
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.Entity is not IAuditableEntity auditableEntity)
+                {
+                    continue;
+                }
+                
+                switch (entry.State)
+                {
+                    case EntityState.Modified:
+                        auditableEntity.LastModifiedDate = DateTime.UtcNow;
+                        break;
+                    case EntityState.Deleted:
+                        auditableEntity.ArchiveDate = DateTime.UtcNow;
+                        break;
+                }
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
