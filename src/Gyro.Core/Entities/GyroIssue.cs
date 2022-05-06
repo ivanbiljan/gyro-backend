@@ -1,9 +1,10 @@
 ﻿using System;
+using Gyro.Core.Shared;
 using Gyro.Domain.Shared;
 
 namespace Gyro.Core.Entities
 {
-    public sealed class Issue : AuditableEntityBase
+    public sealed class Issue : AuditableEntityBase, IMustHaveTenant
     {
         public string Name { get; set; }
         
@@ -18,5 +19,7 @@ namespace Gyro.Core.Entities
         public Project Project { get; set; }
         
         public Priority Priority { get; set; }
+        
+        public int TenantId { get; }
     }
 }

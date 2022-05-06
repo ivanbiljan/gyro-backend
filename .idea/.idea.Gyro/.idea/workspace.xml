@@ -15,8 +15,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/IMayHaveTenant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IMayHaveTenant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/IMustHaveTenant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IMustHaveTenant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/GyroIssue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/GyroIssue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Shared/IMustHaveTenant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IMustHaveTenant.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +243,7 @@
       <workItem from="1649500396374" duration="18423000" />
       <workItem from="1650108172554" duration="16294000" />
       <workItem from="1650145952842" duration="10116000" />
-      <workItem from="1651833115975" duration="3186000" />
+      <workItem from="1651833115975" duration="6138000" />
     </task>
     <servers />
   </component>
