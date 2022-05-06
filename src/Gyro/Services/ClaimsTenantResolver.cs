@@ -1,7 +1,6 @@
 ﻿using System.Security.Claims;
 using Gyro.Core.Shared;
 using Microsoft.AspNetCore.Http;
-
 using static Gyro.Core.Shared.Constants;
 
 namespace Gyro.Services;

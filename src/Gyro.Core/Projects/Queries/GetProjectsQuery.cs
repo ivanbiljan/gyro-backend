@@ -6,47 +6,45 @@ using AutoMapper.QueryableExtensions;
 using Gyro.Core.Entities;
 using Gyro.Core.Shared;
 using Gyro.Core.Shared.AutoMapper;
-using Gyro.Core.Users;
 using Gyro.Core.Users.Queries;
 using MediatR;
 
-namespace Gyro.Core.Projects.Queries
+namespace Gyro.Core.Projects.Queries;
+
+public record GetProjectsRequest : IRequest<GetProjectsResponse>;
+
+public record GetProjectsResponse
 {
-    public record GetProjectsRequest : IRequest<GetProjectsResponse>;
+    public IEnumerable<ProjectDto> Projects { get; init; } = new List<ProjectDto>();
+}
 
-    public record GetProjectsResponse
+public sealed class ProjectDto : MapsTo<Project>
+{
+    public string Name { get; set; }
+
+    public UserDto Lead { get; set; }
+
+    public string Description { get; set; }
+}
+
+public sealed class GetProjectsQuery : IRequestHandler<GetProjectsRequest, GetProjectsResponse>
+{
+    private readonly IConfigurationProvider _configurationProvider;
+    private readonly IGyroContext _db;
+
+    public GetProjectsQuery(IGyroContext db, IConfigurationProvider configurationProvider)
     {
-        public IEnumerable<ProjectDto> Projects { get; init; } = new List<ProjectDto>();
+        _configurationProvider = configurationProvider;
+        _db = db;
     }
 
-    public sealed class ProjectDto : MapsTo<Project>
+    public Task<GetProjectsResponse> Handle(GetProjectsRequest request, CancellationToken cancellationToken)
     {
-        public string Name { get; set; }
-        
-        public UserDto Lead { get; set; }
-        
-        public string Description { get; set; }
-    }
+        var projects = _db.Projects.ProjectTo<ProjectDto>(_configurationProvider);
 
-    public sealed class GetProjectsQuery : IRequestHandler<GetProjectsRequest, GetProjectsResponse>
-    {
-        private readonly IConfigurationProvider _configurationProvider;
-        private readonly IGyroContext _db;
-
-        public GetProjectsQuery(IGyroContext db, IConfigurationProvider configurationProvider)
+        return Task.FromResult(new GetProjectsResponse
         {
-            _configurationProvider = configurationProvider;
-            _db = db;
-        }
-
-        public Task<GetProjectsResponse> Handle(GetProjectsRequest request, CancellationToken cancellationToken)
-        {
-            var projects = _db.Projects.ProjectTo<ProjectDto>(_configurationProvider);
-
-            return Task.FromResult(new GetProjectsResponse
-            {
-                Projects = projects
-            });
-        }
+            Projects = projects
+        });
     }
 }

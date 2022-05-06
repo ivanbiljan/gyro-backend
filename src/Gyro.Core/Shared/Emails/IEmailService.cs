@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 
-namespace Gyro.Core.Shared.Emails
+namespace Gyro.Core.Shared.Emails;
+
+public interface IEmailService
 {
-    public interface IEmailService
-    {
-        Task SendEmailAsync(string to, string subject, string content);
-    }
+    Task SendEmailAsync(string to, string subject, string content);
 }

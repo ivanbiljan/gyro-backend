@@ -4,17 +4,16 @@ using Gyro.Core.Shared.MediatrPipelineBehaviours;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Gyro.Core.Extensions
+namespace Gyro.Core.Extensions;
+
+// ReSharper disable once InconsistentNaming
+public static class IServiceCollectionExtensions
 {
-    // ReSharper disable once InconsistentNaming
-    public static class IServiceCollectionExtensions
+    public static IServiceCollection AddApplication(this IServiceCollection serviceCollection)
     {
-        public static IServiceCollection AddApplication(this IServiceCollection serviceCollection)
-        {
-            return serviceCollection
-                .AddAutoMapper(cfg => cfg.AddProfile(new MainProfile()))
-                .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>))
-                .AddTransient<IPasswordHasher, PasswordHasher>();
-        }
+        return serviceCollection
+            .AddAutoMapper(cfg => cfg.AddProfile(new MainProfile()))
+            .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>))
+            .AddTransient<IPasswordHasher, PasswordHasher>();
     }
 }

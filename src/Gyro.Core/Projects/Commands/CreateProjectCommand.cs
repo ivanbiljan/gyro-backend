@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Gyro.Core.Entities;
@@ -9,47 +8,46 @@ using Gyro.Core.Users;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gyro.Core.Projects.Commands
+namespace Gyro.Core.Projects.Commands;
+
+public sealed record CreateProjectRequest(string Name, string Description) : IRequest<CreateProjectResponse>;
+
+public sealed record CreateProjectResponse;
+
+public sealed class CreateProjectCommand : IRequestHandler<CreateProjectRequest, CreateProjectResponse>
 {
-    public sealed record CreateProjectRequest(string Name, string Description) : IRequest<CreateProjectResponse>;
+    private readonly ICurrentUserService _currentUserService;
+    private readonly IGyroContext _db;
 
-    public sealed record CreateProjectResponse;
-
-    public sealed class CreateProjectCommand : IRequestHandler<CreateProjectRequest, CreateProjectResponse>
+    public CreateProjectCommand(ICurrentUserService currentUserService, IGyroContext db)
     {
-        private readonly ICurrentUserService _currentUserService;
-        private readonly IGyroContext _db;
+        _currentUserService = currentUserService;
+        _db = db;
+    }
 
-        public CreateProjectCommand(ICurrentUserService currentUserService, IGyroContext db)
+    public async Task<CreateProjectResponse> Handle(CreateProjectRequest request,
+        CancellationToken cancellationToken)
+    {
+        // Project names are unique per user, meaning multiple users may create a project with the same name
+        var userId = int.Parse(_currentUserService.UserId);
+        var project = await _db.Projects
+            .Where(p => p.Lead.Id == userId)
+            .Where(p => p.Name == request.Name)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (project is not null)
         {
-            _currentUserService = currentUserService;
-            _db = db;
+            throw new GyroException("A project with that name already exists");
         }
 
-        public async Task<CreateProjectResponse> Handle(CreateProjectRequest request,
-            CancellationToken cancellationToken)
+        project = new Project(request.Name, userId)
         {
-            // Project names are unique per user, meaning multiple users may create a project with the same name
-            var userId = int.Parse(_currentUserService.UserId);
-            var project = await _db.Projects
-                .Where(p => p.Lead.Id == userId)
-                .Where(p => p.Name == request.Name)
-                .FirstOrDefaultAsync(cancellationToken);
+            Description = request.Description
+        };
 
-            if (project is not null)
-            {
-                throw new GyroException("A project with that name already exists");
-            }
+        _db.Projects.Add(project);
+        await _db.SaveAsync(cancellationToken);
 
-            project = new Project(request.Name, userId)
-            {
-                Description = request.Description
-            };
-            
-            _db.Projects.Add(project);
-            await _db.SaveAsync(cancellationToken);
-
-            return new CreateProjectResponse();
-        }
+        return new CreateProjectResponse();
     }
 }

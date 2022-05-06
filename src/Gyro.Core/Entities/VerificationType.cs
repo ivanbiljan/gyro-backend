@@ -1,8 +1,7 @@
-﻿namespace Gyro.Core.Entities
+﻿namespace Gyro.Core.Entities;
+
+public enum VerificationType
 {
-    public enum VerificationType
-    {
-        Registration,
-        ForgotPassword
-    }
+    Registration,
+    ForgotPassword
 }

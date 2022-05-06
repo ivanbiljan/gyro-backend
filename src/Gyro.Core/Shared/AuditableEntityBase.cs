@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Gyro.Core.Shared
+namespace Gyro.Core.Shared;
+
+public abstract class AuditableEntityBase : EntityBase, IAuditableEntity
 {
-    public abstract class AuditableEntityBase : EntityBase, IAuditableEntity
-    {
-        public DateTime? ArchiveDate { get; set; }
-        
-        public DateTime? LastModifiedDate { get; set; }
-    }
+    public DateTime? ArchiveDate { get; set; }
+
+    public DateTime? LastModifiedDate { get; set; }
 }

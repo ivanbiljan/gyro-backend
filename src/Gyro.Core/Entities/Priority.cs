@@ -1,9 +1,8 @@
 ﻿using Gyro.Core.Shared;
 
-namespace Gyro.Core.Entities
+namespace Gyro.Core.Entities;
+
+public sealed class Priority : EntityBase
 {
-    public sealed class Priority : EntityBase
-    {
-        public string Name { get; set; }
-    }
+    public string Name { get; set; }
 }

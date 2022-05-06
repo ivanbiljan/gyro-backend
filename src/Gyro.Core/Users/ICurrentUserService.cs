@@ -1,7 +1,6 @@
-﻿namespace Gyro.Core.Users
+﻿namespace Gyro.Core.Users;
+
+public interface ICurrentUserService
 {
-    public interface ICurrentUserService
-    {
-        string? UserId { get; }
-    }
+    string? UserId { get; }
 }
