@@ -78,6 +78,7 @@ namespace Gyro.Infrastructure.Persistence
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 ConfigureTenantFilter(entityType);
+                ConfigureArchivedFilter(entityType);
             }
 
             void ConfigureTenantFilter(IMutableEntityType entityType)
@@ -104,9 +105,9 @@ namespace Gyro.Infrastructure.Persistence
                 }
 
                 var entity = Expression.Parameter(entityType.ClrType, "e");
-                var tenantId = Expression.PropertyOrField(entity, nameof(IAuditableEntity.ArchiveDate));
+                var archiveDate = Expression.PropertyOrField(entity, nameof(IAuditableEntity.ArchiveDate));
                 var filter =
-                    Expression.Lambda(Expression.NotEqual(tenantId, Expression.Constant(null)),
+                    Expression.Lambda(Expression.NotEqual(archiveDate, Expression.Constant(null)),
                         entity);
 
                 entityType.SetQueryFilter(filter);
