@@ -25,6 +25,8 @@ namespace Gyro.Core.Entities
         
         public DateTime? ActivationTime { get; set; }
         
+        public UserAbout About { get; }
+        
         public List<Project> Projects { get; init; } = null!;
 
         public List<Issue> AssignedIssues { get; init; } = null!;

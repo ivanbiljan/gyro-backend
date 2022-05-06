@@ -13,7 +13,22 @@
     <projectFile profileName="Gyro">src/Gyro/Gyro.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="" />
+    <list default="true" id="d76b8f5b-fb0a-4127-b662-7cb7cc973341" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gyro/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/GyroIssue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/GyroIssue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/Permission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Permission.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/Priority.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Priority.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/Project.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Project.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/RefreshToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/Role.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Entities/VerificationRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Entities/VerificationRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Shared/AuditableEntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/AuditableEntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Shared/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Shared/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/EntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Core/Shared/IAuditableEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Core/Shared/IAuditableEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gyro.Infrastructure/Persistence/GyroContext.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,7 +253,7 @@
       <workItem from="1649500396374" duration="18423000" />
       <workItem from="1650108172554" duration="16294000" />
       <workItem from="1650145952842" duration="10116000" />
-      <workItem from="1651833115975" duration="7152000" />
+      <workItem from="1651833115975" duration="7495000" />
     </task>
     <servers />
   </component>
