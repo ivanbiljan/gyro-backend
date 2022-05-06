@@ -9,7 +9,7 @@ namespace Gyro.Controllers.v1;
 [AllowAnonymous]
 [ApiController]
 [ApiVersion("1.0")]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public sealed class AccountController : ControllerBase
 {
     private readonly IMediator _mediator;

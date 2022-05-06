@@ -152,7 +152,7 @@ public class Startup
         app.UseExceptionWrapper();
 
         app.UseRouting();
-        app.UseCors(opts => opts.AllowAnyOrigin());
+        app.UseCors(opts => opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapGet("/", context => context.Response.WriteAsync("OK"));
