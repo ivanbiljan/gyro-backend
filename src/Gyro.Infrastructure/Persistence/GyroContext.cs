@@ -65,5 +65,19 @@ namespace Gyro.Infrastructure.Persistence
 
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        private void ConfigureGlobalFilters()
+        {
+            foreach (var entityType in Model.GetEntityTypes())
+            {
+                if (!typeof(IMustHaveTenant).IsAssignableFrom(entityType.ClrType) &&
+                    !typeof(IMayHaveTenant).IsAssignableFrom(entityType.ClrType))
+                {
+                    continue;
+                }
+                
+                
+            }
+        }
     }
 }
