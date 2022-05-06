@@ -2,6 +2,8 @@
 using Gyro.Core.Users;
 using Microsoft.AspNetCore.Http;
 
+using static Gyro.Core.Shared.Constants;
+
 namespace Gyro.Services
 {
     internal sealed class CurrentUserService : ICurrentUserService
@@ -13,6 +15,6 @@ namespace Gyro.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public string? UserId => _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.Sid);
+        public string? UserId => _httpContextAccessor.HttpContext?.User.FindFirstValue(Claims.Sid);
     }
 }
