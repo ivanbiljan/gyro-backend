@@ -20,6 +20,6 @@ namespace Gyro.Core.Entities
         
         public Priority Priority { get; set; }
         
-        public int TenantId { get; }
+        public string TenantId { get; }
     }
 }

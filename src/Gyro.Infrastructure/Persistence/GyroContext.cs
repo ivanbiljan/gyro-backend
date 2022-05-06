@@ -8,7 +8,6 @@ using Gyro.Core.Shared;
 using Gyro.Domain.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace Gyro.Infrastructure.Persistence
 {
