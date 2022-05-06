@@ -1,4 +1,4 @@
-﻿namespace Gyro.Core.Entities;
+﻿namespace Gyro.Core.Shared;
 
 /// <summary>
 ///     Represents a contract that describes an entity that must have a tenant associated with it. These entities are

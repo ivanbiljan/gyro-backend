@@ -1,4 +1,4 @@
-﻿namespace Gyro.Core.Entities;
+﻿namespace Gyro.Core.Shared;
 
 /// <summary>
 ///     Represents a contract that describes an entity that may have an optional tenant associated with it. Filtering such
