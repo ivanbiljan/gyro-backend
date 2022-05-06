@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gyro.Domain.Shared
+namespace Gyro.Core.Shared
 {
     public abstract class AuditableEntityBase : EntityBase, IAuditableEntity
     {

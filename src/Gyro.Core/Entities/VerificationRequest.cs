@@ -1,5 +1,5 @@
 ﻿using System;
-using Gyro.Domain.Shared;
+using Gyro.Core.Shared;
 
 namespace Gyro.Core.Entities
 {

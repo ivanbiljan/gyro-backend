@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using Gyro.Domain.Shared;
+using Gyro.Core.Shared;
 
 namespace Gyro.Core.Entities
 {

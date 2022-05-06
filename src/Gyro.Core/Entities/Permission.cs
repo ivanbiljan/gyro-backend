@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Gyro.Domain.Shared;
+using Gyro.Core.Shared;
 
 namespace Gyro.Core.Entities
 {

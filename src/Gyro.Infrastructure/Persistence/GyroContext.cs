@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Gyro.Core.Entities;
 using Gyro.Core.Shared;
-using Gyro.Domain.Shared;
+using Gyro.Core.Shared;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using Gyro.Core.Shared;
-using Gyro.Domain.Shared;
+using Gyro.Core.Shared;
 
 namespace Gyro.Core.Entities
 {
