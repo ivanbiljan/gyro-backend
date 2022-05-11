@@ -46,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Shared/EntityBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/Project.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Shared/IAuditableEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6518e12429e640b855e84dbcb556279a6dcdecc0f25132fcbc5510f956f771e7/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Shared/AuditableEntityBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Gyro.Core/Entities/Issue.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -66,7 +67,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.37272727" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.37243947" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT&#10;GitIgnore" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -238,7 +239,7 @@
       <workItem from="1649500396374" duration="18423000" />
       <workItem from="1650108172554" duration="16294000" />
       <workItem from="1650145952842" duration="10116000" />
-      <workItem from="1651833115975" duration="11667000" />
+      <workItem from="1651833115975" duration="14894000" />
     </task>
     <servers />
   </component>
@@ -261,25 +262,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Gyro/Controllers/v1/AccountController.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\IvanBiljan\Documents\Repos\gyro-backend\src\Gyro\Controllers\v1\AccountController.cs" initialLine="24" containingFunctionPresentation="method 'Register'">
-            <startOffsets>
-              <option value="605" />
-            </startOffsets>
-            <endOffsets>
-              <option value="634" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

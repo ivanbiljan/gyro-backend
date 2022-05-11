@@ -78,6 +78,8 @@ public class Startup
     {
         services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
 
+        services.AddTransient<ITenantResolver, ClaimsTenantResolver>();
+
         services.AddApplication()
             .AddInfrastructure(Configuration)
             .AddMediatR(Assembly.GetExecutingAssembly(), typeof(IGyroContext).Assembly)
