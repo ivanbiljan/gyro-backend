@@ -9,34 +9,34 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Gyro.Infrastructure.Extensions
+namespace Gyro.Infrastructure.Extensions;
+
+public static class IServiceCollectionExtensions
 {
-    public static class IServiceCollectionExtensions
+    public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection,
+        IConfiguration configuration)
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection, IConfiguration configuration)
+        var connectionString = configuration.GetConnectionString(nameof(GyroContext));
+        serviceCollection.AddDbContext<GyroContext>(opts => opts.UseInMemoryDatabase("InMemory"));
+
+        serviceCollection.AddScoped<IGyroContext>(provider =>
         {
-            var connectionString = configuration.GetConnectionString(nameof(GyroContext));
-            serviceCollection.AddDbContext<GyroContext>(opts => opts.UseInMemoryDatabase("InMemory"));
+            var context = provider.GetRequiredService<GyroContext>();
+            return context;
+        });
 
-            serviceCollection.AddScoped<IGyroContext>(provider =>
-            {
-                var context = provider.GetRequiredService<GyroContext>();
-                return context;
-            });
-            
-            serviceCollection.AddHttpClient<IMailjetClient, MailjetClient>(client =>
-            {
-                client.SetDefaultSettings();
+        serviceCollection.AddHttpClient<IMailjetClient, MailjetClient>(client =>
+        {
+            client.SetDefaultSettings();
 
-                var mailjetSection = configuration.GetSection("Mailjet");
-                client.UseBasicAuthentication(mailjetSection["ApiKey"], mailjetSection["ApiSecret"]);
-            });
+            var mailjetSection = configuration.GetSection("Mailjet");
+            client.UseBasicAuthentication(mailjetSection["ApiKey"], mailjetSection["ApiSecret"]);
+        });
 
-            serviceCollection.AddTransient<IJwtService, JwtService>();
+        serviceCollection.AddTransient<IJwtService, JwtService>();
 
-            serviceCollection.AddTransient<IEmailService, MailjetEmailService>();
+        serviceCollection.AddTransient<IEmailService, MailjetEmailService>();
 
-            return serviceCollection;
-        }
+        return serviceCollection;
     }
 }

@@ -1,9 +1,8 @@
-﻿namespace Gyro.Core.Shared
-{
-    public interface IPasswordHasher
-    {
-        string Hash(string password);
+﻿namespace Gyro.Core.Shared;
 
-        bool VerifyPassword(string providedPassword, string hashedPassword);
-    }
+public interface IPasswordHasher
+{
+    string Hash(string password);
+
+    bool VerifyPassword(string providedPassword, string hashedPassword);
 }

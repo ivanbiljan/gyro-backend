@@ -7,48 +7,48 @@ using Gyro.Core.Shared;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gyro.Core.Users.Commands
+namespace Gyro.Core.Users.Commands;
+
+public sealed record ConfirmRegistrationRequest(string Token) : IRequest<ConfirmRegistrationResponse>;
+
+public sealed record ConfirmRegistrationResponse;
+
+public sealed class
+    ConfirmRegistrationCommand : IRequestHandler<ConfirmRegistrationRequest, ConfirmRegistrationResponse>
 {
-    public sealed record ConfirmRegistrationRequest(string Token) : IRequest<ConfirmRegistrationResponse>;
+    private readonly IGyroContext _db;
 
-    public sealed record ConfirmRegistrationResponse;
-
-    public sealed class ConfirmRegistrationCommand : IRequestHandler<ConfirmRegistrationRequest, ConfirmRegistrationResponse>
+    public ConfirmRegistrationCommand(IGyroContext db)
     {
-        private readonly IGyroContext _db;
+        _db = db;
+    }
 
-        public ConfirmRegistrationCommand(IGyroContext db)
+    public async Task<ConfirmRegistrationResponse> Handle(ConfirmRegistrationRequest request,
+        CancellationToken cancellationToken)
+    {
+        var verificationRequest = await _db.VerificationRequests
+            .Where(r => r.Token == Guid.Parse(request.Token))
+            .SingleOrDefaultAsync(cancellationToken);
+
+        if (verificationRequest is null || verificationRequest.ExpirationTime < DateTime.UtcNow)
         {
-            _db = db;
+            throw new GyroException("Invalid request");
         }
 
-        public async Task<ConfirmRegistrationResponse> Handle(ConfirmRegistrationRequest request,
-            CancellationToken cancellationToken)
+        var user = await _db.Users
+            .Where(u => u.Id == verificationRequest.UserId)
+            .SingleOrDefaultAsync(cancellationToken);
+
+        if (verificationRequest.ActivationTime != null || verificationRequest.User.ActivationTime != null)
         {
-            var verificationRequest = await _db.VerificationRequests
-                .Where(r => r.Token == Guid.Parse(request.Token))
-                .SingleOrDefaultAsync(cancellationToken);
-
-            if (verificationRequest is null || verificationRequest.ExpirationTime < DateTime.UtcNow)
-            {
-                throw new GyroException("Invalid request");
-            }
-
-            var user = await _db.Users
-                .Where(u => u.Id == verificationRequest.UserId)
-                .SingleOrDefaultAsync(cancellationToken);
-
-            if (verificationRequest.ActivationTime != null || verificationRequest.User.ActivationTime != null)
-            {
-                throw new GyroException("The account had already been activated");
-            }
-
-            verificationRequest.ActivationTime = DateTime.UtcNow;
-            user.ActivationTime = DateTime.UtcNow;
-
-            await _db.SaveAsync(cancellationToken);
-
-            return new ConfirmRegistrationResponse();
+            throw new GyroException("The account had already been activated");
         }
+
+        verificationRequest.ActivationTime = DateTime.UtcNow;
+        user.ActivationTime = DateTime.UtcNow;
+
+        await _db.SaveAsync(cancellationToken);
+
+        return new ConfirmRegistrationResponse();
     }
 }

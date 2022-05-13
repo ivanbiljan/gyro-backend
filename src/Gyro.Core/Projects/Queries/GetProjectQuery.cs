@@ -9,40 +9,39 @@ using Gyro.Core.Users;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gyro.Core.Projects.Queries
+namespace Gyro.Core.Projects.Queries;
+
+public sealed record GetProjectRequest(int ProjectId) : IRequest<GetProjectResponse>;
+
+public sealed record GetProjectResponse(ProjectDto ProjectDto);
+
+public sealed class GetProjectQuery : IRequestHandler<GetProjectRequest, GetProjectResponse>
 {
-    public sealed record GetProjectRequest(int ProjectId) : IRequest<GetProjectResponse>;
+    private readonly ICurrentUserService _currentUserService;
+    private readonly IGyroContext _db;
+    private readonly IMapper _mapper;
 
-    public sealed record GetProjectResponse(ProjectDto ProjectDto);
-    
-    public sealed class GetProjectQuery : IRequestHandler<GetProjectRequest, GetProjectResponse>
+    public GetProjectQuery(IGyroContext db, IMapper mapper, ICurrentUserService currentUserService)
     {
-        private readonly ICurrentUserService _currentUserService;
-        private readonly IGyroContext _db;
-        private readonly IMapper _mapper;
+        _currentUserService = currentUserService;
+        _db = db;
+        _mapper = mapper;
+    }
 
-        public GetProjectQuery(IGyroContext db, IMapper mapper, ICurrentUserService currentUserService)
+    public async Task<GetProjectResponse> Handle(GetProjectRequest request, CancellationToken cancellationToken)
+    {
+        var userId = int.Parse(_currentUserService.UserId);
+        var project = await _db.Projects
+            .Where(p => p.Id == request.ProjectId)
+            .Where(p => p.Lead.Id == userId)
+            .Where(p => p.Members.Any(m => m.Id == userId))
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (project is null)
         {
-            _currentUserService = currentUserService;
-            _db = db;
-            _mapper = mapper;
+            throw new GyroException("Project does not exist");
         }
 
-        public async Task<GetProjectResponse> Handle(GetProjectRequest request, CancellationToken cancellationToken)
-        {
-            var userId = int.Parse(_currentUserService.UserId);
-            var project = await _db.Projects
-                .Where(p => p.Id == request.ProjectId)
-                .Where(p => p.Lead.Id == userId)
-                .Where(p => p.Members.Any(m => m.Id == userId))
-                .FirstOrDefaultAsync(cancellationToken);
-
-            if (project is null)
-            {
-                throw new GyroException("Project does not exist");
-            }
-
-            return new GetProjectResponse(_mapper.Map<Project, ProjectDto>(project));
-        }
+        return new GetProjectResponse(_mapper.Map<Project, ProjectDto>(project));
     }
 }

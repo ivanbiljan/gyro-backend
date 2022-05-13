@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Gyro.Domain.Shared
+namespace Gyro.Core.Shared;
+
+public abstract class EntityBase
 {
-    public abstract class EntityBase
-    {
-        public DateTime CreatedAt { get; } = DateTime.UtcNow;
-        
-        public int Id { get; init; }
-    }
+    public DateTime CreatedAt { get; } = DateTime.UtcNow;
+
+    public int Id { get; init; }
 }
