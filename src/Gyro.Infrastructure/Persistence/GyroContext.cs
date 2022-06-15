@@ -11,11 +11,13 @@ namespace Gyro.Infrastructure.Persistence;
 
 public sealed class GyroContext : DbContext, IGyroContext
 {
+    private readonly IPasswordHasher _passwordHasher;
     private readonly ITenantResolver _tenantResolver;
 
-    public GyroContext(DbContextOptions<GyroContext> options, ITenantResolver tenantResolver) : base(options)
+    public GyroContext(DbContextOptions<GyroContext> options, ITenantResolver tenantResolver, IPasswordHasher passwordHasher) : base(options)
     {
         _tenantResolver = tenantResolver;
+        _passwordHasher = passwordHasher;
     }
 
     public DbSet<Issue> Issues => Set<Issue>();
@@ -43,7 +45,7 @@ public sealed class GyroContext : DbContext, IGyroContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GyroContext).Assembly);
         ConfigureGlobalFilters(modelBuilder);
 
-        DatabaseInitializer.SeedData(modelBuilder);
+        DatabaseInitializer.SeedData(modelBuilder, _passwordHasher);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

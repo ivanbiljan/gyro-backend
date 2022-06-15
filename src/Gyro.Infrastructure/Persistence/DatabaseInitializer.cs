@@ -1,15 +1,16 @@
 ﻿using Gyro.Core.Entities;
+using Gyro.Core.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gyro.Infrastructure.Persistence;
 
 internal static class DatabaseInitializer
 {
-    public static void SeedData(ModelBuilder modelBuilder)
+    public static void SeedData(ModelBuilder modelBuilder, IPasswordHasher passwordHasher)
     {
         var users = new User[]
         {
-            new("Administrator", "admin@gyro.com", "Not a hashed password") {Id = 1}
+            new("Administrator", "admin@gyro.com", passwordHasher.Hash("admin")) {Id = 1}
         };
 
         modelBuilder.Entity<User>().HasData(users);
