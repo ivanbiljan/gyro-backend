@@ -9,7 +9,8 @@ namespace Gyro.Controllers.v1;
 
 [Authorize]
 [ApiController]
-[Route("[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public sealed class ProjectsController : ControllerBase
 {
     private readonly IMediator _mediator;
