@@ -3,7 +3,7 @@ using Gyro.Core.Shared;
 
 namespace Gyro.Core.Entities;
 
-public sealed class Issue : AuditableEntityBase, IMustHaveTenant
+public sealed class Issue : AuditableEntityBase
 {
     public string Name { get; set; }
 
@@ -18,6 +18,6 @@ public sealed class Issue : AuditableEntityBase, IMustHaveTenant
     public Project Project { get; set; }
 
     public Priority Priority { get; set; }
-
-    public string TenantId { get; }
+    
+    public Epic Epic { get; set; }
 }
