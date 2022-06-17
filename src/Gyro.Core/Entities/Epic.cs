@@ -4,7 +4,7 @@ using Gyro.Core.Shared;
 namespace Gyro.Core.Entities;
 
 /// <summary>
-/// Represents a large body of work represented as a collection of smaller <see cref="Issue"/>s.
+/// Represents a large body of work broken down into a collection of smaller <see cref="Issue"/>s.
 /// </summary>
 public sealed class Epic : AuditableEntityBase
 {
@@ -24,7 +24,7 @@ public sealed class Epic : AuditableEntityBase
     public Project Project { get; set; }
 
     /// <summary>
-    /// Gets all the <see cref="Issue"/>s under this epic.
+    /// Gets all the <see cref="Issue"/>s under this <see cref="Epic"/>.
     /// </summary>
     public List<Issue> Issues { get; init; } = new();
 }
