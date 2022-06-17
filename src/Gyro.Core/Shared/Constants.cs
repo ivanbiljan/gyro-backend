@@ -8,4 +8,11 @@ public static class Constants
 
         public const string TenantId = nameof(TenantId);
     }
+
+    public static class VerificationLinks
+    {
+        public static string GetAccountConfirmationLink(string token) => $"/account/confirm/{token}";
+
+        public static string GetPasswordResetLink(string token) => $"/account/reset-password/{token}";
+    }
 }
