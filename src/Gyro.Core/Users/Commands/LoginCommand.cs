@@ -39,7 +39,7 @@ public sealed class LoginCommand : IRequestHandler<LoginUserRequest, LoginUserRe
     public async Task<LoginUserResponse> Handle(LoginUserRequest request, CancellationToken cancellationToken)
     {
         var user = await _db.Users
-            .Where(u => u.Username == request.Username)
+            .Where(u => u.Email == request.Username || u.Username == request.Username)
             .SingleOrDefaultAsync(cancellationToken);
 
         if (user == null)
