@@ -20,7 +20,7 @@ public sealed class AccountController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("register")]
+    [HttpPost("signup")]
     public async Task<RegisterUserResponse> Register([FromForm] RegisterUserRequest request) =>
         await _mediator.Send(request);
 
