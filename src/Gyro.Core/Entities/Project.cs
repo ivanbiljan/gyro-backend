@@ -13,6 +13,8 @@ public sealed class Project : AuditableEntityBase
     }
 
     public string Name { get; set; }
+    
+    public string Key { get; set; }
 
     public int LeadId { get; set; }
 

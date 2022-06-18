@@ -13,6 +13,7 @@ public sealed class MainProfile : Profile
             where type.BaseType is {IsGenericType: true} &&
                   typeof(MapsTo<>).IsAssignableFrom(type.BaseType.GetGenericTypeDefinition())
             select type;
+        
         foreach (var mappableType in mappableTypes)
         {
             var instance = Activator.CreateInstance(mappableType);
