@@ -32,4 +32,8 @@ public sealed class User : AuditableEntityBase
     public List<Issue> AssignedIssues { get; init; } = null!;
 
     public List<Issue> ReportedIssues { get; init; } = null!;
+    
+    public int OrganizationId { get; init; }
+
+    public Organization Organization { get; init; } = null!;
 }

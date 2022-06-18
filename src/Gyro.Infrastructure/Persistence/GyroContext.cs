@@ -20,6 +20,8 @@ public sealed class GyroContext : DbContext, IGyroContext
         _passwordHasher = passwordHasher;
     }
 
+    public DbSet<Epic> Epics => Set<Epic>();
+    
     public DbSet<Issue> Issues => Set<Issue>();
 
     public DbSet<Permission> Permissions => Set<Permission>();
@@ -32,9 +34,13 @@ public sealed class GyroContext : DbContext, IGyroContext
 
     public DbSet<User> Users => Set<User>();
 
+    public DbSet<UserAbout> UserAbouts => Set<UserAbout>();
+
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
     public DbSet<VerificationRequest> VerificationRequests => Set<VerificationRequest>();
+
+    public DbSet<Organization> Organizations => Set<Organization>();
 
     public Task<int> SaveAsync(CancellationToken cancellationToken) => SaveChangesAsync(cancellationToken);
 

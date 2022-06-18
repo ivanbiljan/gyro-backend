@@ -7,6 +7,8 @@ namespace Gyro.Core.Shared;
 
 public interface IGyroContext
 {
+    DbSet<Epic> Epics { get; }
+
     DbSet<Issue> Issues { get; }
 
     DbSet<Permission> Permissions { get; }
@@ -18,10 +20,14 @@ public interface IGyroContext
     DbSet<Role> Roles { get; }
 
     DbSet<User> Users { get; }
+    
+    DbSet<UserAbout> UserAbouts { get; }
 
     DbSet<RefreshToken> RefreshTokens { get; }
 
     DbSet<VerificationRequest> VerificationRequests { get; }
+    
+    DbSet<Organization> Organizations { get; }
 
     Task<int> SaveAsync(CancellationToken cancellationToken);
 }

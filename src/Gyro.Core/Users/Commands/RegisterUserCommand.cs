@@ -10,6 +10,7 @@ using Gyro.Core.Shared;
 using Gyro.Core.Shared.Emails;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using static Gyro.Core.Shared.Constants;
 
 namespace Gyro.Core.Users.Commands;
 
@@ -37,8 +38,6 @@ public sealed class RegisterUserCommandValidator : AbstractValidator<RegisterUse
 
 public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, RegisterUserResponse>
 {
-    private const int AccountConfirmationExpirationMinutes = 15;
-
     private readonly IGyroContext _db;
     private readonly IEmailService _emailService;
     private readonly IPasswordHasher _passwordHasher;
@@ -60,21 +59,31 @@ public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, R
         {
             throw new GyroException("User already exists");
         }
+        
+        // TODO: handle work emails?
+        // Keep this as is for the time being; i.e., create a random organization for each new account
+        // Further down the road we should be able to associate accounts to a specific organization according to the domain
+        // More importantly, we should expand upon the registration flow to redirect the user to a page that allows him to specify the organization's name
+
+        var organization = new Organization(request.Username);
+        _db.Organizations.Add(organization);
 
         var hashedPassword = _passwordHasher.Hash(request.Password);
-        var newUser = new User(request.Username, request.Email, hashedPassword);
+        var newUser = new User(request.Username, request.Email, hashedPassword)
+        {
+            Organization = organization
+        };
 
         _db.Users.Add(newUser);
-
-        var token = Guid.NewGuid();
-        var verificationRequest = new VerificationRequest(newUser.Id, VerificationType.Registration, token)
+        
+        var verificationRequest = new VerificationRequest(newUser.Id, VerificationType.Registration)
         {
-            ExpirationTime = DateTime.UtcNow.AddMinutes(AccountConfirmationExpirationMinutes)
+            ExpirationTime = DateTime.UtcNow.AddMinutes(VerificationLinks.AccountConfirmationExpirationMinutes)
         };
 
         _db.VerificationRequests.Add(verificationRequest);
 
-        var verificationLink = VerificationLink.For(VerificationType.Registration, token.ToString());
+        var verificationLink = VerificationLink.For(verificationRequest);
         await _emailService.SendEmailAsync(request.Email, "Confirm account",
             $"Confirm your account: {verificationLink}");
 

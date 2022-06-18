@@ -20,7 +20,8 @@ public sealed class VerificationLink
         _token = token;
     }
 
-    public static VerificationLink For(VerificationType verificationType, string token) => new(verificationType, token);
+    public static VerificationLink For(VerificationRequest verificationRequest) =>
+        new(verificationRequest.VerificationType, verificationRequest.Token.ToString());
 
     public override string ToString()
     {

@@ -5,10 +5,15 @@ namespace Gyro.Core.Entities;
 
 public sealed class VerificationRequest : EntityBase
 {
-    public VerificationRequest(int userId, VerificationType verificationType, Guid token)
+    public VerificationRequest(int userId, VerificationType verificationType)
     {
         UserId = userId;
         VerificationType = verificationType;
+        Token = Guid.NewGuid();
+    }
+    
+    public VerificationRequest(int userId, VerificationType verificationType, Guid token) : this(userId, verificationType)
+    {
         Token = token;
     }
 

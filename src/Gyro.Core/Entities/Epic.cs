@@ -9,7 +9,7 @@ namespace Gyro.Core.Entities;
 public sealed class Epic : AuditableEntityBase
 {
     /// <summary>
-    /// Gets or sets the name that briefly describes work that must be completed.
+    /// Gets or sets the name that briefly describes the work that must be completed.
     /// </summary>
     public string Name { get; set; }
     
@@ -24,7 +24,7 @@ public sealed class Epic : AuditableEntityBase
     public Project Project { get; set; }
 
     /// <summary>
-    /// Gets all the <see cref="Issue"/>s under this <see cref="Epic"/>.
+    /// Gets all the <see cref="Issue"/>s under this epic.
     /// </summary>
     public List<Issue> Issues { get; init; } = new();
 }

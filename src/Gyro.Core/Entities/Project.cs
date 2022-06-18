@@ -25,4 +25,6 @@ public sealed class Project : AuditableEntityBase
     public List<User> Members { get; set; }
     
     public List<Epic> Epics { get; set; }
+    
+    public Organization Organization { get; set; }
 }
