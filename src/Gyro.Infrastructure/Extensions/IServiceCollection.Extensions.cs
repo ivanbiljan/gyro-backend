@@ -17,7 +17,17 @@ public static class IServiceCollectionExtensions
         IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString(nameof(GyroContext));
-        serviceCollection.AddDbContext<GyroContext>(opts => opts.UseInMemoryDatabase("InMemory"));
+        serviceCollection.AddDbContext<GyroContext>(opts =>
+        {
+            if (connectionString == "InMemory")
+            {
+                opts.UseInMemoryDatabase("InMemory");
+            }
+            else
+            {
+                opts.UseSqlServer(connectionString);
+            }
+        });
 
         serviceCollection.AddScoped<IGyroContext>(provider =>
         {
