@@ -20,5 +20,6 @@ public sealed class Issue : AuditableEntityBase, IMustHaveTenant
     public Priority Priority { get; set; }
     
     public Epic Epic { get; set; }
-    public string TenantId { get; }
+    
+    public string TenantId { get; set; }
 }

@@ -9,5 +9,5 @@ public interface IMustHaveTenant
     /// <summary>
     ///     Gets an integer that uniquely identifies an entity's tenant.
     /// </summary>
-    string TenantId { get; }
+    string TenantId { get; set; }
 }

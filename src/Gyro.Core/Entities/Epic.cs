@@ -28,5 +28,5 @@ public sealed class Epic : AuditableEntityBase, IMustHaveTenant
     /// </summary>
     public List<Issue> Issues { get; init; } = new();
 
-    public string TenantId { get; }
+    public string TenantId { get; set; }
 }

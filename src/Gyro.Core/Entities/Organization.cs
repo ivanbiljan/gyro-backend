@@ -55,5 +55,5 @@ public sealed class Organization : AuditableEntityBase, IMustHaveTenant
     /// </summary>
     public List<Project> Projects { get; init; } = new();
 
-    public string TenantId { get; }
+    public string TenantId { get; set; }
 }

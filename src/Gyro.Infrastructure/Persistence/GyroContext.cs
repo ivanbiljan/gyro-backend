@@ -58,6 +58,19 @@ public sealed class GyroContext : DbContext, IGyroContext
     {
         foreach (var entry in ChangeTracker.Entries())
         {
+            if (entry.Entity is IMustHaveTenant mustHaveTenant && entry.State == EntityState.Added)
+            {
+                // TenantId can only be null in the case of an unauthorized call or a malicious attack
+                // We ignore any additions in both cases
+                var tenantId = _tenantResolver.GetTenantId();
+                if (string.IsNullOrWhiteSpace(tenantId))
+                {
+                    entry.State = EntityState.Detached;
+                }
+
+                mustHaveTenant.TenantId = tenantId!;
+            }
+            
             if (entry.Entity is not IAuditableEntity auditableEntity)
             {
                 continue;
@@ -66,11 +79,15 @@ public sealed class GyroContext : DbContext, IGyroContext
             switch (entry.State)
             {
                 case EntityState.Modified:
+                {
                     auditableEntity.LastModifiedDate = DateTime.UtcNow;
+                }
                     break;
                 case EntityState.Deleted:
+                {
                     entry.State = EntityState.Modified;
                     auditableEntity.ArchiveDate = DateTime.UtcNow;
+                }
                     break;
             }
         }
