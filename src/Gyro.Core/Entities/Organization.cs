@@ -8,7 +8,7 @@ namespace Gyro.Core.Entities;
 /// <summary>
 /// Represents an organization.
 /// </summary>
-public sealed class Organization : AuditableEntityBase
+public sealed class Organization : AuditableEntityBase, IMustHaveTenant
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="Organization"/> with the specified organization name.
@@ -54,4 +54,6 @@ public sealed class Organization : AuditableEntityBase
     /// Gets the organization's projects.
     /// </summary>
     public List<Project> Projects { get; init; } = new();
+
+    public string TenantId { get; }
 }

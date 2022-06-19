@@ -6,7 +6,7 @@ namespace Gyro.Core.Entities;
 /// <summary>
 /// Represents a large body of work broken down into a collection of smaller <see cref="Issue"/>s.
 /// </summary>
-public sealed class Epic : AuditableEntityBase
+public sealed class Epic : AuditableEntityBase, IMustHaveTenant
 {
     /// <summary>
     /// Gets or sets the name that briefly describes the work that must be completed.
@@ -27,4 +27,6 @@ public sealed class Epic : AuditableEntityBase
     /// Gets all the <see cref="Issue"/>s under this epic.
     /// </summary>
     public List<Issue> Issues { get; init; } = new();
+
+    public string TenantId { get; }
 }

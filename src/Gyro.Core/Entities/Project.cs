@@ -4,7 +4,7 @@ using Gyro.Core.Shared;
 
 namespace Gyro.Core.Entities;
 
-public sealed class Project : AuditableEntityBase
+public sealed class Project : AuditableEntityBase, IMustHaveTenant
 {
     public Project(string name, int leadId)
     {
@@ -29,4 +29,6 @@ public sealed class Project : AuditableEntityBase
     public List<Epic> Epics { get; set; }
     
     public Organization Organization { get; set; }
+    
+    public string TenantId { get; }
 }
