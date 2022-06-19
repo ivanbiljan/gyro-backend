@@ -15,7 +15,7 @@ public sealed class RegisterUserCommandTests
     [InlineData("test@domain..com")]
     [InlineData(" leading@domain.com")]
     [InlineData("trailing@domain.com ")]
-    public async Task InvalidEmail_ThrowsValidationException(string email)
+    public async Task RequestValidator_InvalidEmail_ThrowsValidationException(string email)
     {
         var request = new RegisterUserRequest(email, "username", "password", "first name", "last name");
         var validator = new RegisterUserCommandValidator();
@@ -26,7 +26,7 @@ public sealed class RegisterUserCommandTests
     }
 
     [Fact]
-    public async Task EmptyUsername_ThrowsValidationException()
+    public async Task RequestValidator_EmptyUsername_ThrowsValidationException()
     {
         var request = new RegisterUserRequest("email@gmail.com", string.Empty, "password", "first name", "last name");
         var validator = new RegisterUserCommandValidator();
