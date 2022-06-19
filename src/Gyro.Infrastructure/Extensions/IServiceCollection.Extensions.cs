@@ -32,6 +32,8 @@ public static class IServiceCollectionExtensions
         serviceCollection.AddScoped<IGyroContext>(provider =>
         {
             var context = provider.GetRequiredService<GyroContext>();
+            context.Database.EnsureCreated();
+            
             return context;
         });
 

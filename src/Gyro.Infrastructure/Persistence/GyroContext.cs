@@ -112,7 +112,7 @@ public sealed class GyroContext : DbContext, IGyroContext
             var entity = Expression.Parameter(entityType.ClrType, "e");
             var archiveDate = Expression.PropertyOrField(entity, nameof(IAuditableEntity.ArchiveDate));
             var filter =
-                Expression.Lambda(Expression.NotEqual(archiveDate, Expression.Constant(null)),
+                Expression.Lambda(Expression.Equal(archiveDate, Expression.Constant(null)),
                     entity);
 
             entityType.SetQueryFilter(filter);

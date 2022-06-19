@@ -37,9 +37,9 @@ public sealed class
 
         var user = await _db.Users
             .Where(u => u.Id == verificationRequest.UserId)
-            .SingleOrDefaultAsync(cancellationToken);
+            .SingleAsync(cancellationToken);
 
-        if (verificationRequest.ActivationTime != null || verificationRequest.User.ActivationTime != null)
+        if (verificationRequest.ActivationTime != null || user.ActivationTime != null)
         {
             throw new GyroException("The account had already been activated");
         }
