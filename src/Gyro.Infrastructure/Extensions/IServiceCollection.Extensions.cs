@@ -4,6 +4,9 @@ using Gyro.Core.Shared.Emails;
 using Gyro.Infrastructure.Authorization;
 using Gyro.Infrastructure.Emails;
 using Gyro.Infrastructure.Persistence;
+using Hangfire;
+using Hangfire.MemoryStorage;
+using Hangfire.SqlServer;
 using Mailjet.Client;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -48,6 +51,25 @@ public static class IServiceCollectionExtensions
         serviceCollection.AddTransient<IJwtService, JwtService>();
 
         serviceCollection.AddTransient<IEmailService, MailjetEmailService>();
+
+        serviceCollection.AddHangfire(hangfireConfiguration =>
+        {
+            hangfireConfiguration.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings();
+
+            if (connectionString == "InMemory")
+            {
+                hangfireConfiguration.UseMemoryStorage();
+            }
+            else
+            {
+                hangfireConfiguration.UseSqlServerStorage(connectionString, new SqlServerStorageOptions
+                {
+                    PrepareSchemaIfNecessary = true
+                });
+            }
+        });
 
         return serviceCollection;
     }

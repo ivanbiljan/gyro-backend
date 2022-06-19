@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.Core.Tests", "tests\Gy
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SoultionItems", "SoultionItems", "{1D4B607E-B453-4A05-8E0C-08E1B7E65CA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gyro.HangfireWorker", "src\Gyro.HangfireWorker\Gyro.HangfireWorker.csproj", "{C5953F19-2F6A-44F4-981A-4AE14F361C55}"
+EndProject
 e
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,5 +35,9 @@ Global
 		{99D6EBC5-613C-452A-9F20-A7FB3E485DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D6EBC5-613C-452A-9F20-A7FB3E485DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99D6EBC5-613C-452A-9F20-A7FB3E485DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5953F19-2F6A-44F4-981A-4AE14F361C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5953F19-2F6A-44F4-981A-4AE14F361C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5953F19-2F6A-44F4-981A-4AE14F361C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5953F19-2F6A-44F4-981A-4AE14F361C55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
