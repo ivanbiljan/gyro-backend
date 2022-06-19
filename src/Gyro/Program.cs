@@ -154,7 +154,12 @@ public class Startup
         app.UseExceptionWrapper();
 
         app.UseRouting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+        
         app.UseCors(opts => opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+        
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapGet("/", context => context.Response.WriteAsync("OK"));
