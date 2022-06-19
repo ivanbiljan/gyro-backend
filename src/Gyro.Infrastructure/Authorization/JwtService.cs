@@ -12,23 +12,23 @@ using Gyro.Core.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using static Gyro.Core.Shared.Constants;
 
 namespace Gyro.Infrastructure.Authorization;
 
 internal sealed class JwtService : IJwtService
 {
-    private const int AccessTokenExpirationDays = 1;
-    private const int RefreshTokenExpirationDays = 30;
     private readonly ICurrentUserService _currentUserService;
     private readonly IGyroContext _db;
-
+    private readonly IJwtFactory _jwtFactory;
     private readonly JwtSettings _jwtOptions;
 
-    public JwtService(IOptions<JwtSettings> jwtOptions, ICurrentUserService currentUserService, IGyroContext db)
+    public JwtService(IOptions<JwtSettings> jwtOptions, IJwtFactory jwtFactory, ICurrentUserService currentUserService, IGyroContext db)
     {
         _jwtOptions = jwtOptions.Value;
         _currentUserService = currentUserService;
         _db = db;
+        _jwtFactory = jwtFactory;
     }
 
     public async Task RevokeAsync(string token)
@@ -95,26 +95,17 @@ internal sealed class JwtService : IJwtService
 
     private string CreateAccessToken(int userId)
     {
-        var jwtHandler = new JwtSecurityTokenHandler();
-        var securityToken = new JwtSecurityToken(
-            signingCredentials: new SigningCredentials(
-                new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_jwtOptions.Key)),
-                SecurityAlgorithms.HmacSha256),
-            expires: DateTime.UtcNow.AddDays(AccessTokenExpirationDays),
-            claims: new[]
-            {
-                new Claim(ClaimTypes.Sid, userId.ToString())
-            }
-        );
-
-        return jwtHandler.WriteToken(securityToken);
+        return _jwtFactory.CreateJwt(new[]
+        {
+            new Claim(Claims.Sid, userId.ToString())
+        });
     }
 
     private static RefreshToken CreateRefreshToken(int userId) =>
         new RefreshToken
         {
             CreatedBy = userId.ToString(),
-            ExpiresAt = DateTime.UtcNow.AddDays(RefreshTokenExpirationDays),
+            ExpiresAt = DateTime.UtcNow.AddDays(Jwt.RefreshTokenExpirationDays),
             OwnerId = userId,
             Token = Guid.NewGuid().ToString()
         };

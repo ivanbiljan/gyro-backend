@@ -48,6 +48,7 @@ public static class IServiceCollectionExtensions
             client.UseBasicAuthentication(mailjetSection["ApiKey"], mailjetSection["ApiSecret"]);
         });
 
+        serviceCollection.AddTransient<IJwtFactory, JwtFactory>();
         serviceCollection.AddTransient<IJwtService, JwtService>();
 
         serviceCollection.AddTransient<IEmailService, MailjetEmailService>();

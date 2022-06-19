@@ -17,4 +17,11 @@ public static class Constants
 
         public static string GetPasswordResetLink(string token) => $"/account/reset-password/{token}";
     }
+
+    public static class Jwt
+    {
+        public const int AccessTokenExpirationDays = 1;
+       
+        public const int RefreshTokenExpirationDays = 30;
+    }
 }
