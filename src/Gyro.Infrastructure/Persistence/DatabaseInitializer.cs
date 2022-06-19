@@ -1,4 +1,5 @@
-﻿using Gyro.Core.Entities;
+﻿using System;
+using Gyro.Core.Entities;
 using Gyro.Core.Shared;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +15,14 @@ internal static class DatabaseInitializer
         };
 
         modelBuilder.Entity<Organization>().HasData(organizations);
-        
+
         var users = new User[]
         {
-            new("Administrator", "admin@gyro.com", passwordHasher.Hash("admin")) {Id = 1}
+            new("Administrator", "admin@gyro.com", passwordHasher.Hash("admin"))
+            {
+                Id = 1, 
+                ActivationTime = DateTime.UtcNow
+            }
         };
 
         modelBuilder.Entity<User>().HasData(users);
