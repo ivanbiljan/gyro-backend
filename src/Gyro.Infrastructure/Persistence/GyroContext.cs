@@ -12,11 +12,12 @@ namespace Gyro.Infrastructure.Persistence;
 public sealed class GyroContext : DbContext, IGyroContext
 {
     private readonly IPasswordHasher _passwordHasher;
-    private readonly ITenantResolver _tenantResolver;
+    private readonly string _tenantId;
 
     public GyroContext(DbContextOptions<GyroContext> options, ITenantResolver tenantResolver, IPasswordHasher passwordHasher) : base(options)
     {
-        _tenantResolver = tenantResolver;
+        // TenantId can only be null in the case of an unauthorized call or a malicious attack
+        _tenantId = tenantResolver.GetTenantId() ?? Constants.InvalidTenantId;
         _passwordHasher = passwordHasher;
     }
 
@@ -58,17 +59,14 @@ public sealed class GyroContext : DbContext, IGyroContext
     {
         foreach (var entry in ChangeTracker.Entries())
         {
-            if (entry.Entity is IMustHaveTenant mustHaveTenant && entry.State == EntityState.Added)
+            if (entry.Entity is IMustHaveTenant { TenantId: null } mustHaveTenant && entry.State == EntityState.Added)
             {
-                // TenantId can only be null in the case of an unauthorized call or a malicious attack
-                // We ignore any additions in both cases
-                var tenantId = _tenantResolver.GetTenantId();
-                if (string.IsNullOrWhiteSpace(tenantId))
+                if (_tenantId == Constants.InvalidTenantId)
                 {
                     entry.State = EntityState.Detached;
                 }
 
-                mustHaveTenant.TenantId = tenantId!;
+                mustHaveTenant.TenantId = _tenantId!;
             }
             
             if (entry.Entity is not IAuditableEntity auditableEntity)
@@ -113,7 +111,7 @@ public sealed class GyroContext : DbContext, IGyroContext
             var entity = Expression.Parameter(entityType.ClrType, "e");
             var tenantId = Expression.PropertyOrField(entity, nameof(IMustHaveTenant.TenantId));
             var filter =
-                Expression.Lambda(Expression.Equal(tenantId, Expression.Constant(_tenantResolver.GetTenantId())),
+                Expression.Lambda(Expression.Equal(tenantId, Expression.Constant(_tenantId)),
                     entity);
 
             entityType.SetQueryFilter(filter);

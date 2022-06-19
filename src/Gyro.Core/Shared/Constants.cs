@@ -2,6 +2,8 @@
 
 public static class Constants
 {
+    public const string InvalidTenantId = nameof(InvalidTenantId);
+    
     public static class Claims
     {
         public const string Sid = nameof(Sid);
