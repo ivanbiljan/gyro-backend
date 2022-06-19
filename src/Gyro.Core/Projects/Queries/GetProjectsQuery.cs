@@ -20,11 +20,10 @@ public record GetProjectsResponse
 
 public sealed class ProjectDto : MapsTo<Project>
 {
-    public string Name { get; set; }
+    public string Description { get; set; }
 
     public UserDto Lead { get; set; }
-
-    public string Description { get; set; }
+    public string Name { get; set; }
 }
 
 public sealed class GetProjectsQuery : IRequestHandler<GetProjectsRequest, GetProjectsResponse>

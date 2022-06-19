@@ -1,6 +1,5 @@
 ﻿using System;
 using Gyro.Core.Entities;
-
 using static Gyro.Core.Shared.Constants;
 
 namespace Gyro.Core.Shared;
@@ -20,18 +19,18 @@ public sealed class VerificationLink
         _token = token;
     }
 
-    public static VerificationLink For(VerificationRequest verificationRequest) =>
-        new(verificationRequest.VerificationType, verificationRequest.Token.ToString());
-
     public override string ToString()
     {
         var link = _verificationType switch
         {
-            VerificationType.Registration   => VerificationLinks.GetAccountConfirmationLink(_token),
+            VerificationType.Registration => VerificationLinks.GetAccountConfirmationLink(_token),
             VerificationType.ForgotPassword => VerificationLinks.GetPasswordResetLink(_token),
-            _                               => throw new ArgumentOutOfRangeException()
+            _ => throw new ArgumentOutOfRangeException()
         };
 
         return link;
     }
+
+    public static VerificationLink For(VerificationRequest verificationRequest) =>
+        new(verificationRequest.VerificationType, verificationRequest.Token.ToString());
 }

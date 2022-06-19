@@ -14,7 +14,8 @@ public sealed class GyroContext : DbContext, IGyroContext
     private readonly IPasswordHasher _passwordHasher;
     private readonly string _tenantId;
 
-    public GyroContext(DbContextOptions<GyroContext> options, ITenantResolver tenantResolver, IPasswordHasher passwordHasher) : base(options)
+    public GyroContext(DbContextOptions<GyroContext> options, ITenantResolver tenantResolver,
+        IPasswordHasher passwordHasher) : base(options)
     {
         // TenantId can only be null in the case of an unauthorized call or a malicious attack
         _tenantId = tenantResolver.GetTenantId() ?? Constants.InvalidTenantId;
@@ -22,8 +23,10 @@ public sealed class GyroContext : DbContext, IGyroContext
     }
 
     public DbSet<Epic> Epics => Set<Epic>();
-    
+
     public DbSet<Issue> Issues => Set<Issue>();
+
+    public DbSet<Organization> Organizations => Set<Organization>();
 
     public DbSet<Permission> Permissions => Set<Permission>();
 
@@ -31,29 +34,17 @@ public sealed class GyroContext : DbContext, IGyroContext
 
     public DbSet<Project> Projects => Set<Project>();
 
+    public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+
     public DbSet<Role> Roles => Set<Role>();
 
     public DbSet<User> Users => Set<User>();
 
     public DbSet<UserAbout> UserAbouts => Set<UserAbout>();
 
-    public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
-
     public DbSet<VerificationRequest> VerificationRequests => Set<VerificationRequest>();
 
-    public DbSet<Organization> Organizations => Set<Organization>();
-
     public Task<int> SaveAsync(CancellationToken cancellationToken) => SaveChangesAsync(cancellationToken);
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(GyroContext).Assembly);
-        ConfigureGlobalFilters(modelBuilder);
-
-        DatabaseInitializer.SeedData(modelBuilder, _passwordHasher);
-    }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -68,7 +59,7 @@ public sealed class GyroContext : DbContext, IGyroContext
 
                 mustHaveTenant.TenantId = _tenantId!;
             }
-            
+
             if (entry.Entity is not IAuditableEntity auditableEntity)
             {
                 continue;
@@ -80,17 +71,29 @@ public sealed class GyroContext : DbContext, IGyroContext
                 {
                     auditableEntity.LastModifiedDate = DateTime.UtcNow;
                 }
+
                     break;
                 case EntityState.Deleted:
                 {
                     entry.State = EntityState.Modified;
                     auditableEntity.ArchiveDate = DateTime.UtcNow;
                 }
+
                     break;
             }
         }
 
         return base.SaveChangesAsync(cancellationToken);
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(GyroContext).Assembly);
+        ConfigureGlobalFilters(modelBuilder);
+
+        DatabaseInitializer.SeedData(modelBuilder, _passwordHasher);
     }
 
     private void ConfigureGlobalFilters(ModelBuilder modelBuilder)

@@ -4,7 +4,7 @@ using System.Security.Claims;
 namespace Gyro.Core.Shared.Authorization;
 
 /// <summary>
-/// Defines a contract that describes a JWT factory; a <see langword="class"/> that produces JWTs.
+///     Defines a contract that describes a JWT factory; a <see langword="class" /> that produces JWTs.
 /// </summary>
 public interface IJwtFactory
 {

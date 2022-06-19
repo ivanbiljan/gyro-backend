@@ -11,23 +11,23 @@ public interface IGyroContext
 
     DbSet<Issue> Issues { get; }
 
+    DbSet<Organization> Organizations { get; }
+
     DbSet<Permission> Permissions { get; }
 
     DbSet<Priority> Priorities { get; }
 
     DbSet<Project> Projects { get; }
 
-    DbSet<Role> Roles { get; }
-
-    DbSet<User> Users { get; }
-    
-    DbSet<UserAbout> UserAbouts { get; }
-
     DbSet<RefreshToken> RefreshTokens { get; }
 
+    DbSet<Role> Roles { get; }
+
+    DbSet<UserAbout> UserAbouts { get; }
+
+    DbSet<User> Users { get; }
+
     DbSet<VerificationRequest> VerificationRequests { get; }
-    
-    DbSet<Organization> Organizations { get; }
 
     Task<int> SaveAsync(CancellationToken cancellationToken);
 }

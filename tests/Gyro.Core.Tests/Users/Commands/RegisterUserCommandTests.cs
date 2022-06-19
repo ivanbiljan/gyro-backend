@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using System.Xml.Serialization;
 using Gyro.Core.Users.Commands;
 using Xunit;
 

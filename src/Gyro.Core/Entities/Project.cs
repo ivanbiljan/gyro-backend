@@ -12,23 +12,23 @@ public sealed class Project : AuditableEntityBase, IMustHaveTenant
         LeadId = leadId;
     }
 
-    public string Name { get; set; }
-    
-    public string Key { get; set; }
+    public string? Description { get; set; }
 
-    public int LeadId { get; set; }
+    public List<Epic> Epics { get; set; }
+
+    public string Key { get; set; }
 
     public User Lead { get; set; }
 
-    public string? Description { get; set; }
+    public int LeadId { get; set; }
+
+    public List<User> Members { get; set; }
+
+    public string Name { get; set; }
+
+    public Organization Organization { get; set; }
 
     public List<Issue> Tasks { get; set; }
 
-    public List<User> Members { get; set; }
-    
-    public List<Epic> Epics { get; set; }
-    
-    public Organization Organization { get; set; }
-    
     public string TenantId { get; set; }
 }

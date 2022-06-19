@@ -19,17 +19,17 @@ public sealed class AccountController : ControllerBase
         _mediator = mediator;
     }
 
-    [AllowAnonymous]
-    [HttpPost("signup")]
-    public async Task<RegisterUserResponse> Register([FromForm] RegisterUserRequest request) =>
-        await _mediator.Send(request);
+    [HttpGet("confirm/{token}")]
+    public async Task<ConfirmRegistrationResponse> ConfirmRegistration(
+        [FromRoute] string token) => await _mediator.Send(new ConfirmRegistrationRequest(token));
 
     [AllowAnonymous]
     [HttpPost("login")]
     public async Task<LoginUserResponse> Login([FromForm] LoginUserRequest request) =>
         await _mediator.Send(request);
 
-    [HttpGet("confirm/{token}")]
-    public async Task<ConfirmRegistrationResponse> ConfirmRegistration(
-        [FromRoute] string token) => await _mediator.Send(new ConfirmRegistrationRequest(token));
+    [AllowAnonymous]
+    [HttpPost("signup")]
+    public async Task<RegisterUserResponse> Register([FromForm] RegisterUserRequest request) =>
+        await _mediator.Send(request);
 }

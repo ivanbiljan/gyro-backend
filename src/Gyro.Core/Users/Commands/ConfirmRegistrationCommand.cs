@@ -13,8 +13,8 @@ public sealed record ConfirmRegistrationRequest(string Token) : IRequest<Confirm
 
 public sealed record ConfirmRegistrationResponse;
 
-public sealed class
-    ConfirmRegistrationCommand : IRequestHandler<ConfirmRegistrationRequest, ConfirmRegistrationResponse>
+public sealed class ConfirmRegistrationCommand
+    : IRequestHandler<ConfirmRegistrationRequest, ConfirmRegistrationResponse>
 {
     private readonly IGyroContext _db;
 

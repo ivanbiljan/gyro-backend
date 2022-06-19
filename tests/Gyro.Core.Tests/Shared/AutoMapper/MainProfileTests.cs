@@ -9,14 +9,14 @@ namespace Gyro.Core.Tests.Shared.AutoMapper;
 
 public sealed class MainProfileTests
 {
-    private readonly IConfigurationProvider _configurationProvider;
-    private readonly IMapper _mapper;
-
     public MainProfileTests()
     {
         _configurationProvider = new MapperConfiguration(cfg => cfg.AddProfile(new MainProfile()));
         _mapper = new Mapper(_configurationProvider);
     }
+
+    private readonly IConfigurationProvider _configurationProvider;
+    private readonly IMapper _mapper;
 
     [Theory]
     [InlineData(typeof(User), typeof(UserDto))]

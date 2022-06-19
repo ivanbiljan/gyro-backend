@@ -13,6 +13,12 @@ public sealed class User : AuditableEntityBase
         HashedPassword = hashedPassword ?? throw new ArgumentNullException(nameof(hashedPassword));
     }
 
+    public UserAbout About { get; }
+
+    public DateTime? ActivationTime { get; set; }
+
+    public List<Issue> AssignedIssues { get; init; } = null!;
+
     public string Email { get; set; }
 
     public string? FirstName { get; set; }
@@ -21,19 +27,13 @@ public sealed class User : AuditableEntityBase
 
     public string? LastName { get; set; }
 
-    public string Username { get; set; }
+    public Organization Organization { get; init; } = null!;
 
-    public DateTime? ActivationTime { get; set; }
-
-    public UserAbout About { get; }
+    public int OrganizationId { get; init; }
 
     public List<Project> Projects { get; init; } = null!;
 
-    public List<Issue> AssignedIssues { get; init; } = null!;
-
     public List<Issue> ReportedIssues { get; init; } = null!;
-    
-    public int OrganizationId { get; init; }
 
-    public Organization Organization { get; init; } = null!;
+    public string Username { get; set; }
 }

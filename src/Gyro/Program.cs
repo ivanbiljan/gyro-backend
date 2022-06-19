@@ -74,6 +74,41 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostEnvironment env,
+        IApiVersionDescriptionProvider apiVersionDescriptionProvider)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.DisplayRequestDuration();
+
+                foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
+                {
+                    options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                        description.GroupName.ToUpperInvariant());
+                }
+            });
+        }
+
+        app.UseExceptionWrapper();
+
+        app.UseRouting();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.UseCors(opts => opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapGet("/", context => context.Response.WriteAsync("OK"));
+            endpoints.MapControllers();
+        });
+    }
+
     public void ConfigureServices(IServiceCollection services)
     {
         services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
@@ -130,40 +165,5 @@ public class Startup
         });
 
         services.AddLogging(builder => builder.AddSerilog());
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostEnvironment env,
-        IApiVersionDescriptionProvider apiVersionDescriptionProvider)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI(options =>
-            {
-                options.DisplayRequestDuration();
-
-                foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
-                {
-                    options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
-                        description.GroupName.ToUpperInvariant());
-                }
-            });
-        }
-
-        app.UseExceptionWrapper();
-
-        app.UseRouting();
-
-        app.UseAuthentication();
-        app.UseAuthorization();
-        
-        app.UseCors(opts => opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-        
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet("/", context => context.Response.WriteAsync("OK"));
-            endpoints.MapControllers();
-        });
     }
 }

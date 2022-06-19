@@ -11,7 +11,7 @@ internal static class DatabaseInitializer
     {
         var organizations = new Organization[]
         {
-            new("Gyro") {Id = 1}
+            new("Gyro") { Id = 1 }
         };
 
         modelBuilder.Entity<Organization>().HasData(organizations);
@@ -20,7 +20,7 @@ internal static class DatabaseInitializer
         {
             new("Administrator", "admin@gyro.com", passwordHasher.Hash("admin"))
             {
-                Id = 1, 
+                Id = 1,
                 ActivationTime = DateTime.UtcNow
             }
         };

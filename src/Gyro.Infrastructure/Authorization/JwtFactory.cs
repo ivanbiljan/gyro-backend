@@ -18,7 +18,7 @@ internal sealed class JwtFactory : IJwtFactory
     {
         _jwtOptions = jwtOptions.Value;
     }
-    
+
     public string CreateJwt(IEnumerable<Claim> claims)
     {
         var jwtHandler = new JwtSecurityTokenHandler();

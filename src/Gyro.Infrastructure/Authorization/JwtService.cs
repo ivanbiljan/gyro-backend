@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 using Gyro.Core.Entities;
 using Gyro.Core.Exceptions;
@@ -11,7 +9,6 @@ using Gyro.Core.Shared.Authorization;
 using Gyro.Core.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using static Gyro.Core.Shared.Constants;
 
 namespace Gyro.Infrastructure.Authorization;
@@ -23,7 +20,8 @@ internal sealed class JwtService : IJwtService
     private readonly IJwtFactory _jwtFactory;
     private readonly JwtSettings _jwtOptions;
 
-    public JwtService(IOptions<JwtSettings> jwtOptions, IJwtFactory jwtFactory, ICurrentUserService currentUserService, IGyroContext db)
+    public JwtService(IOptions<JwtSettings> jwtOptions, IJwtFactory jwtFactory, ICurrentUserService currentUserService,
+        IGyroContext db)
     {
         _jwtOptions = jwtOptions.Value;
         _currentUserService = currentUserService;
@@ -93,6 +91,15 @@ internal sealed class JwtService : IJwtService
         return await CreateTokenAsync(ownerId);
     }
 
+    private static RefreshToken CreateRefreshToken(int userId) =>
+        new()
+        {
+            CreatedBy = userId.ToString(),
+            ExpiresAt = DateTime.UtcNow.AddDays(Jwt.RefreshTokenExpirationDays),
+            OwnerId = userId,
+            Token = Guid.NewGuid().ToString()
+        };
+
     private string CreateAccessToken(int userId)
     {
         return _jwtFactory.CreateJwt(new[]
@@ -100,13 +107,4 @@ internal sealed class JwtService : IJwtService
             new Claim(Claims.Sid, userId.ToString())
         });
     }
-
-    private static RefreshToken CreateRefreshToken(int userId) =>
-        new RefreshToken
-        {
-            CreatedBy = userId.ToString(),
-            ExpiresAt = DateTime.UtcNow.AddDays(Jwt.RefreshTokenExpirationDays),
-            OwnerId = userId,
-            Token = Guid.NewGuid().ToString()
-        };
 }

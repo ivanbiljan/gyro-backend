@@ -36,7 +36,7 @@ public static class IServiceCollectionExtensions
         {
             var context = provider.GetRequiredService<GyroContext>();
             context.Database.EnsureCreated();
-            
+
             return context;
         });
 

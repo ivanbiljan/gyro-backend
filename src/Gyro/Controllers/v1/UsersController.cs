@@ -25,5 +25,5 @@ public sealed class UsersController : ControllerBase
     [HttpGet]
     [Route("{id}")]
     public async Task<GetUserResponse> GetUserById([FromRoute] int id) =>
-        await _mediator.Send(new GetUserQuery {Id = id});
+        await _mediator.Send(new GetUserQuery { Id = id });
 }

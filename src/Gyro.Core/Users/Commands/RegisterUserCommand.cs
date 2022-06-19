@@ -59,7 +59,7 @@ public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, R
         {
             throw new GyroException("User already exists");
         }
-        
+
         // TODO: handle work emails?
         // Keep this as is for the time being; i.e., create a random organization for each new account
         // Further down the road we should be able to associate accounts to a specific organization according to the domain
@@ -75,7 +75,7 @@ public sealed class RegisterUserCommand : IRequestHandler<RegisterUserRequest, R
         };
 
         _db.Users.Add(newUser);
-        
+
         var verificationRequest = new VerificationRequest(newUser.Id, VerificationType.Registration)
         {
             ExpirationTime = DateTime.UtcNow.AddMinutes(VerificationLinks.AccountConfirmationExpirationMinutes)

@@ -20,14 +20,14 @@ public sealed class ProjectsController : ControllerBase
         _mediator = mediator;
     }
 
+    [HttpPost]
+    public async Task<CreateProjectResponse> CreateProject([FromBody] CreateProjectRequest request) =>
+        await _mediator.Send(request);
+
     [HttpGet]
     public async Task<GetProjectsResponse> GetAllProjects(GetProjectsRequest request) => await _mediator.Send(request);
 
     [HttpGet("{id}")]
     public async Task<GetProjectResponse> GetProjectById([FromRoute] int id) =>
         await _mediator.Send(new GetProjectRequest(id));
-
-    [HttpPost]
-    public async Task<CreateProjectResponse> CreateProject([FromBody] CreateProjectRequest request) =>
-        await _mediator.Send(request);
 }

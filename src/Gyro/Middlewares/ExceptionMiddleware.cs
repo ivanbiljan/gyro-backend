@@ -40,7 +40,7 @@ internal sealed class ExceptionMiddleware
 
         async Task WriteResponseAsync(HttpStatusCode statusCode, object value)
         {
-            context.Response.StatusCode = (int) statusCode;
+            context.Response.StatusCode = (int)statusCode;
             await context.Response.WriteAsJsonAsync(value);
         }
     }
